@@ -117,7 +117,7 @@ function projectVP(verbGroup, complements, adjuncts) {
 
 function projectNP(group) {
   const parts = group.parts ?? [];
-  const determiner = parts.find(token => ['D', 'POSS'].includes(token.pos));
+  const determiner = parts.find(token => ['Det', 'D', 'POSS'].includes(token.pos));
   const modifiers = parts.filter(token => ['A', 'ADV', 'NUM'].includes(token.pos));
   const head = [...parts].reverse().find(token => ['N', 'PROPN', 'PRON'].includes(token.pos)) ?? parts.at(-1);
 
@@ -132,7 +132,7 @@ function projectNP(group) {
   }
 
   const children = determiner
-    ? [lexical('D', determiner.surface), nPrime]
+    ? [lexical('Det', determiner.surface), nPrime]
     : [nPrime];
   return node('N″', children);
 }
