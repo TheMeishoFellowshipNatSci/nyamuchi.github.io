@@ -1,4 +1,4 @@
-const NOMINAL=new Set(['D','POSS','A','NUM','N','PROPN','PRON']);
+const NOMINAL=new Set(['Det','D','POSS','A','NUM','N','PROPN','PRON']);
 const AUXILIARY=new Set(['MODAL','AUX','NEG','ADV']);
 
 export function groupKyuRi(tokens){
@@ -19,7 +19,7 @@ export function groupKyuRi(tokens){
  }
  return groups;
 }
-function startsNewNP(parts,next){const hasHead=parts.some(x=>['N','PROPN','PRON'].includes(x.pos));return hasHead&&['D','PROPN','PRON'].includes(next.pos);}
+function startsNewNP(parts,next){const hasHead=parts.some(x=>['N','PROPN','PRON'].includes(x.pos));return hasHead&&['Det','D','PROPN','PRON'].includes(next.pos);}
 function lastNominal(parts){return [...parts].reverse().find(x=>['N','PROPN','PRON'].includes(x.pos))??parts.at(-1)}
 function make(kind,parts,extra={}){const surface=join(parts);return {kind,phraseCategory:kind,surface,content:surface,base:extra.head??parts.at(-1)?.lemma??'',particle:extra.particle??null,markerType:kind==='C'?'complementizer':null,complementCategory:null,parts,...extra}}
 function join(parts){const seen=new Set();const out=[];for(const p of parts){const key=`${p.rawIndex}:${p.surface}`;if(p.expansionIndex>0&&seen.has(key))continue;seen.add(key);out.push(p.surface)}return out.join(' ')}
