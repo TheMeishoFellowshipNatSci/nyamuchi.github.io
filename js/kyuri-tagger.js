@@ -21,7 +21,7 @@ function seed(token){
   const hit=lookupKyuRi(token.normalized);
   const best=bestAnalysis(hit.analyses,token)??{lemma:token.normalized,pos:['X'],features:['UNKNOWN'],source:'guesser'};
   let candidates=[...new Set(hit.analyses.flatMap(a=>a.pos??[]).concat(best.pos??[]))];
-  if(DET.has(token.normalized))candidates.unshift('D');
+  if(DET.has(token.normalized))candidates.unshift('Det');
   if(PREP.has(token.normalized))candidates.unshift('P');
   if(MODAL.has(best.lemma))candidates.unshift('MODAL');
   if(AUX.has(best.lemma))candidates.unshift('AUX','V');
@@ -37,16 +37,16 @@ function seed(token){
 function resolve(tokens,i){
   const t=tokens[i]; if(['PUNCT','NUM'].includes(t.pos))return t;
   const p=prev(tokens,i),n=next(tokens,i),c=t.posCandidates; let pos;
-  if(DET.has(t.normalized))pos='D';
+  if(DET.has(t.normalized))pos='Det';
   else if(PREP.has(t.normalized))pos=(t.lemma==='to'&&n&&has(n,'V')&&!has(n,'PROPN'))?'INF':'P';
   else if(NEG.has(t.normalized))pos='NEG';
   else if(MODAL.has(t.lemma))pos='MODAL';
   else if(c.includes('PROPN'))pos='PROPN';
-  else if(WH.has(t.lemma))pos=['where','when','why','how'].includes(t.lemma)?'ADV':t.lemma==='whose'?'D':'PRON';
+  else if(WH.has(t.lemma))pos=['where','when','why','how'].includes(t.lemma)?'ADV':t.lemma==='whose'?'Det':'PRON';
   else if(CLAUSE.has(t.lemma)&&t.lemma!=='in')pos='C';
   else if(AUX.has(t.lemma)&&n&&(has(n,'V')||n.pos==='NEG'||n.pos==='ADV'||has(n,'A')))pos='AUX';
   else if(DEGREE.has(t.lemma))pos='ADV';
-  else if(p?.pos==='D'||p?.pos==='POSS')pos=has(t,'A')&&n&&(has(n,'N')||has(n,'PROPN'))?'A':pick(c,['N','PROPN','A']);
+  else if(p?.pos==='Det'||p?.pos==='D'||p?.pos==='POSS')pos=has(t,'A')&&n&&(has(n,'N')||has(n,'PROPN'))?'A':pick(c,['N','PROPN','A']);
   else if(p?.pos==='MODAL'||p?.pos==='INF')pos=has(t,'V')?'V':pick(c,['AUX','V','N']);
   else if(p?.pos==='AUX')pos=p.lemma==='be'&&has(t,'A')&&!t.features.some(x=>['PROG','PTCP'].includes(x))?'A':has(t,'V')?'V':pick(c,['A','N','ADV']);
   else if(p&&DEGREE.has(p.lemma)&&has(t,'A'))pos='A';
@@ -55,7 +55,7 @@ function resolve(tokens,i){
   else if(has(t,'N')&&['V','P','INF'].includes(p?.pos))pos='N';
   else if(has(t,'PRON'))pos='PRON';
   else if(has(t,'V')&&verbPosition(p,tokens,i))pos='V';
-  else pos=pick(c,['N','A','ADV','V','P','D','PRON','CONJ','X']);
+  else pos=pick(c,['N','A','ADV','V','P','Det','D','PRON','CONJ','X']);
   return {...t,pos:pos??'X'};
 }
 
