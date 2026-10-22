@@ -11,9 +11,9 @@ function dictionaryUrl() {
 
 export async function initializeMecab(onProgress = () => {}) {
   if (worker) return worker;
-  onProgress("MeCab/WASMとUniDicを読み込んでいます…");
+  onProgress("MeCab/WASMとUniDicを読み込んでいます…（Nyamuchi Engine準備中）");
   worker = await MecabWorker.create(dictionaryUrl());
-  onProgress("MeCab/UniDic準備完了");
+  onProgress("MeCab/UniDic準備完了 / Nyamuchi Engine準備完了");
   return worker;
 }
 
@@ -83,7 +83,7 @@ export async function tokenize(input) {
       ...feature,
       pos,
       base: feature.lemma || surface,
-      source: "MeCab / UniDic"
+      source: "MeCab / UniDic → Nyamuchi Engine"
     });
   }
 
@@ -209,6 +209,43 @@ export function group(tokens) {
       continue;
     }
 
+    // 「私の父は」「彼の母が」のような属格連体修飾を一つのN句にする。
+    // N + の + N を連鎖可能にし、末尾の主題・格助詞も同じグループへ保持する。
+    if (current.pos === "N" && next?.pos === "P" && next.surface === "の" && tokens[index + 2]?.pos === "N") {
+      const parts = [current, next];
+      let cursor = index + 2;
+      while (tokens[cursor]?.pos === "N" && tokens[cursor + 1]?.pos === "P" &&
+             tokens[cursor + 1].surface === "の" && tokens[cursor + 2]?.pos === "N") {
+        parts.push(tokens[cursor], tokens[cursor + 1]);
+        cursor += 2;
+      }
+      const head = tokens[cursor];
+      parts.push(head);
+      cursor++;
+      const marker = tokens[cursor]?.pos === "P" ? tokens[cursor] : null;
+      if (marker && (NOMINAL_MARKERS.has(marker.surface) || POSTPOSITIONS.has(marker.surface))) {
+        parts.push(marker);
+        cursor++;
+      }
+      const particle = marker?.surface ?? null;
+      const category = particle && POSTPOSITIONS.has(particle) ? "P" : "N";
+      output.push({
+        surface: parts.map(part => part.surface).join(""),
+        content: parts.slice(0, marker ? -1 : undefined).map(part => part.surface).join(""),
+        pos: category,
+        phraseCategory: category,
+        base: head.base || head.surface,
+        particle,
+        markerType: particle
+          ? (NOMINAL_MARKERS.has(particle) ? markerType(particle) : "postposition")
+          : "genitiveNominal",
+        complementCategory: "N",
+        parts,
+        kind: category === "P" ? "postpositionalPhrase" : "genitiveNominal"
+      });
+      index = cursor - 1;
+      continue;
+    }
     // 内容語 + 助詞。
     if (["N", "A", "Adv"].includes(current.pos) && next?.pos === "P") {
       const particle = next.surface;
