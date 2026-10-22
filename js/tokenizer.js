@@ -11,9 +11,9 @@ function dictionaryUrl() {
 
 export async function initializeMecab(onProgress = () => {}) {
   if (worker) return worker;
-  onProgress("MeCab/WASMとUniDicを読み込んでいます…（Nyamuchi Engine準備中）");
+  onProgress("MeCab/WASMとUniDicを読み込んでいます…");
   worker = await MecabWorker.create(dictionaryUrl());
-  onProgress("MeCab/UniDic準備完了 / Nyamuchi Engine準備完了");
+  onProgress("MeCab/UniDic準備完了");
   return worker;
 }
 
@@ -83,7 +83,7 @@ export async function tokenize(input) {
       ...feature,
       pos,
       base: feature.lemma || surface,
-      source: "MeCab / UniDic → Nyamuchi Engine"
+      source: "MeCab / UniDic"
     });
   }
 
@@ -209,8 +209,8 @@ export function group(tokens) {
       continue;
     }
 
-    // 「私の父は」「彼の母が」のような属格連体修飾を一つのN句にする。
-    // N + の + N を連鎖可能にし、末尾の主題・格助詞も同じグループへ保持する。
+    // 属格指定部を含む名詞句。
+    // 「の」はP主要部へ投射せず、N″指定部に属格を付与する標識として保持する。
     if (current.pos === "N" && next?.pos === "P" && next.surface === "の" && tokens[index + 2]?.pos === "N") {
       const parts = [current, next];
       let cursor = index + 2;
@@ -246,6 +246,7 @@ export function group(tokens) {
       index = cursor - 1;
       continue;
     }
+
     // 内容語 + 助詞。
     if (["N", "A", "Adv"].includes(current.pos) && next?.pos === "P") {
       const particle = next.surface;
