@@ -1,7 +1,7 @@
 import { frames } from "./lexicon.js";
 
 export const NYAMUCHI_ENGINE_NAME = "Nyamuchi Engine";
-export const NYAMUCHI_ENGINE_VERSION = "1.0.0";
+export const NYAMUCHI_ENGINE_VERSION = "1.0.1";
 
 let id = 0;
 const node = (label, children = [], surface = null, metadata = {}) => ({
@@ -12,34 +12,62 @@ const node = (label, children = [], surface = null, metadata = {}) => ({
   metadata
 });
 
-function simpleNominal(parts, fallback = "") {
-  const head = [...parts].reverse().find(part => part.pos === "N");
-  return node("N″", [node("N′", [node("N", [], head?.surface || fallback)])]);
+function nominalLeaf(surface, metadata = {}) {
+  return node("N″", [node("N′", [node("N", [], surface, metadata)])]);
 }
+
+function genitiveSpecifier(parts) {
+  // parts は「私・の」または「私・の・父・の」のように末尾が「の」。
+  const finalNo = parts.at(-1)?.surface === "の" ? parts.at(-1) : null;
+  const core = finalNo ? parts.slice(0, -1) : parts;
+  const lastNounIndex = core.map(part => part.pos).lastIndexOf("N");
+  if (lastNounIndex <= 0) {
+    const noun = core.find(part => part.pos === "N");
+    return nominalLeaf((noun?.surface || "") + (finalNo?.surface || ""), {
+      case: "genitive",
+      caseMarker: finalNo?.surface || "の",
+      parts
+    });
+  }
+
+  const head = core[lastNounIndex];
+  const innerSpecifierParts = core.slice(0, lastNounIndex);
+  const innerSpecifier = genitiveSpecifier(innerSpecifierParts);
+  return node("N″", [
+    innerSpecifier,
+    node("N′", [node("N", [], head.surface + (finalNo?.surface || ""), {
+      base: head.base,
+      case: "genitive",
+      caseMarker: finalNo?.surface || "の"
+    })])
+  ], null, { case: "genitive", caseMarker: finalNo?.surface || "の", parts });
+}
+
 function genitiveNominalProjection(group) {
   const parts = group.parts ?? [];
   const finalMarker = [...parts].reverse().find(part => part.pos === "P" && part.surface !== "の");
-  const nominalEnd = finalMarker ? parts.lastIndexOf(finalMarker) : parts.length;
-  const nominalParts = parts.slice(0, nominalEnd);
-  const head = [...nominalParts].reverse().find(part => part.pos === "N");
-  let headPrime = node("N′", [node("N", [], head?.surface || group.content || group.surface)]);
-  const headIndex = head ? nominalParts.lastIndexOf(head) : nominalParts.length - 1;
-  for (let i = headIndex - 1; i >= 1; i -= 1) {
-    if (nominalParts[i]?.pos === "P" && nominalParts[i].surface === "の" && nominalParts[i - 1]?.pos === "N") {
-      const possessor = simpleNominal([nominalParts[i - 1]], nominalParts[i - 1].surface);
-      const genitive = node("P″", [node("P′", [possessor, node("P", [], "の")])]);
-      headPrime = node("N′", [genitive, headPrime]);
-      i -= 1;
-    }
-  }
-  return node("N″", [headPrime], null, {
+  const nominalParts = finalMarker ? parts.slice(0, parts.lastIndexOf(finalMarker)) : parts;
+  const headIndex = nominalParts.map(part => part.pos).lastIndexOf("N");
+  const head = nominalParts[headIndex];
+  const specifierParts = nominalParts.slice(0, headIndex);
+  const specifier = genitiveSpecifier(specifierParts);
+
+  // 本書のXバー方式: N″ → 指定部 N′、N′ → N（＋補語）。
+  // 「私の」はP″ではなく、属格をもつN″指定部。主要部は「父」。
+  return node("N″", [
+    specifier,
+    node("N′", [node("N", [], head?.surface || group.base || group.content || "", {
+      base: head?.base || group.base
+    })])
+  ], null, {
     particle: finalMarker?.surface ?? group.particle,
     markerType: group.markerType,
     parts
   });
 }
+
 function lexicalProjection(category, group) {
-  if (category === "N" && group.parts?.some(part => part.pos === "P" && part.surface === "の")) {
+  if (category === "N" && group.kind === "genitiveNominal") {
     return genitiveNominalProjection(group);
   }
   return node(category + "″", [
@@ -173,5 +201,5 @@ export function brackets(current) {
   return `[${current.label}${current.children.length ? " " + current.children.map(brackets).join(" ") : ""}]`;
 }
 
-// Backward-compatible alias.
+// 旧APIとの互換性を維持。
 export const parse = parseNyamuchi;
