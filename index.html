@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#197cc8">
-<title>Umiri 3.0</title>
+<title>Umiri 3.0 Core</title>
 <style>
 :root{--b1:#eaf5ff;--b2:#b9d8f2;--b3:#6ea5d1;--line:#6c9bc3;--ink:#173a5a;--orange:#f6a81a;--paper:#fff}
 *{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;font-family:"Segoe UI","Meiryo",sans-serif;color:var(--ink);background:#d5e8f7}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}.hidden,[hidden]{display:none!important}svg{display:block}.ico{width:18px;height:18px;stroke:#24577f;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.large .ico{width:30px;height:30px}
@@ -197,12 +197,8 @@ $('#treeZoomRange').oninput=e=>{treeTransform.k=e.target.value/100;applyTreeTran
 $('#englishMode').addEventListener('change',updateAnalysisModeUI);updateAnalysisModeUI();
 $('#multiInput').addEventListener('input',()=>{clearTimeout(window.__lineTimer);window.__lineTimer=setTimeout(()=>splitInput(true),350)});
 const diagnosticsObserver=new MutationObserver(()=>{const warnings=[...$('#diagnostics').querySelectorAll('.warning')];if(!warnings.length)return;const messages=warnings.map(item=>item.textContent.trim().replace(/^⚠\s*/, '')).filter(Boolean);warnings.forEach(item=>item.remove());const notice=messages.length?'⚠ '+messages.join(' ／ '):'';$('#statusNotice').textContent=notice;$('#statusNotice').title=notice;if(clauses[active]){clauses[active].result.diagnostics=$('#diagnostics').innerHTML;clauses[active].result.statusNotice=notice}});diagnosticsObserver.observe($('#diagnostics'),{childList:true,subtree:true});
-const readyObserver=new MutationObserver(()=>{if(!$('#analyze').disabled){readyObserver.disconnect();setShell('MeCab準備完了')}});readyObserver.observe($('#analyze'),{attributes:true,attributeFilter:['disabled']});
+const readyObserver=new MutationObserver(()=>{if(!$('#analyze').disabled){readyObserver.disconnect();setShell('Nyamuchi Engine準備完了')}});readyObserver.observe($('#analyze'),{attributes:true,attributeFilter:['disabled']});
 splitInput(false);if(!setupDone())showWizard();
 })();
 </script>
 </body></html>
-
-
-
-
