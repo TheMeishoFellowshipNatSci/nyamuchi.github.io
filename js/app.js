@@ -1,6 +1,6 @@
 import { tokenize, group, initializeMecab } from './tokenizer.js';
-import { parse, paths, brackets } from './parser.js';
-import { analyzeWithKyuRi } from './kyuri.js';
+import { parseNyamuchi, paths, brackets } from './nyamuchi-engine.js';
+import { analyzeWithNyamuchiEnglish } from './nyamuchi-engine-for-english.js';
 
 const $ = selector => document.querySelector(selector);
 const E = value => String(value ?? '').replace(/[&<>"']/g, character => ({
@@ -46,11 +46,11 @@ function isEnglishMode() {
 async function analyzeJapanese(text) {
   const tokens = await tokenize(text);
   const groups = group(tokens);
-  const result = parse(groups);
+  const result = parseNyamuchi(groups);
 
   return {
     language: 'ja',
-    engineName: 'MeCab',
+    engineName: 'Nyamuchi Engine (MeCab / UniDic)',
     tokens,
     groups,
     result,
@@ -60,11 +60,11 @@ async function analyzeJapanese(text) {
 }
 
 function analyzeEnglish(text) {
-  const result = analyzeWithKyuRi(text);
+  const result = analyzeWithNyamuchiEnglish(text);
 
   return {
     language: 'en',
-    engineName: 'KyuRi',
+    engineName: 'Nyamuchi Engine for English (KyuRi 2.0 Neo)',
     tokens: result.tokens,
     groups: result.groups,
     result,
