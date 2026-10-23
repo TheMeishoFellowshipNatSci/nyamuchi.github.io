@@ -1,0 +1,1 @@
+export * from '../japanese/nyamuchi-core-japanese.js';

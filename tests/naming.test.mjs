@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {NYAMUCHI_CORE_NAME} from '../src/nyamuchi-core/shared/identity.js';test('name',()=>assert.equal(NYAMUCHI_CORE_NAME,'Nyamuchi Core'));

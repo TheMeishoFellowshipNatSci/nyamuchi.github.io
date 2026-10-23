@@ -1,0 +1,18 @@
+{
+  "name": "umiri-4",
+  "private": true,
+  "version": "4.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/copy-third-party-licenses.mjs",
+    "dev": "vite",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/download-unidic-dictionary.mjs && node scripts/publish-third-party-licenses.mjs && vite build"
+  },
+  "dependencies": {
+    "mecab-web-worker": "0.3.2"
+  },
+  "devDependencies": {
+    "vite": "5.4.21"
+  }
+}

@@ -1,0 +1,1 @@
+export * from './shared/identity.js';export * as English from './english/nyamuchi-core-english.js';export * as Japanese from './japanese/nyamuchi-core-japanese.js';

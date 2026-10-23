@@ -1,0 +1,1 @@
+export const NYAMUCHI_CORE_NAME='Nyamuchi Core';export const NYAMUCHI_CORE_CJK_NAME='喵姆親演算核心';export const NYAMUCHI_CORE_VERSION='4.0.0';
