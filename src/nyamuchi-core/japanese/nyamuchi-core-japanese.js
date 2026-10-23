@@ -17,13 +17,14 @@ function nominalLeaf(surface, metadata = {}) {
 }
 
 function genitiveSpecifier(parts) {
-  // parts は「私・の」または「私・の・父・の」のように末尾が「の」。
+  // 属格指定部を必ず内部構造として投射する。
+  // 例: 「私の」 -> [N″ [N′ [N 私] [P の]]]
   const finalNo = parts.at(-1)?.surface === "の" ? parts.at(-1) : null;
   const core = finalNo ? parts.slice(0, -1) : parts;
   const lastNounIndex = core.map(part => part.pos).lastIndexOf("N");
-  if (lastNounIndex <= 0) {
-    const noun = core.find(part => part.pos === "N");
-    return nominalLeaf((noun?.surface || "") + (finalNo?.surface || ""), {
+
+  if (lastNounIndex < 0) {
+    return nominalLeaf(core.map(part => part.surface).join(""), {
       case: "genitive",
       caseMarker: finalNo?.surface || "の",
       parts
@@ -31,16 +32,22 @@ function genitiveSpecifier(parts) {
   }
 
   const head = core[lastNounIndex];
-  const innerSpecifierParts = core.slice(0, lastNounIndex);
-  const innerSpecifier = genitiveSpecifier(innerSpecifierParts);
-  return node("N″", [
-    innerSpecifier,
-    node("N′", [node("N", [], head.surface + (finalNo?.surface || ""), {
-      base: head.base,
+  const preceding = core.slice(0, lastNounIndex);
+  const nBarChildren = [];
+  if (preceding.length) nBarChildren.push(genitiveSpecifier(preceding));
+  nBarChildren.push(node("N", [], head.surface, { base: head.base }));
+  if (finalNo) {
+    nBarChildren.push(node("P", [], finalNo.surface, {
       case: "genitive",
-      caseMarker: finalNo?.surface || "の"
-    })])
-  ], null, { case: "genitive", caseMarker: finalNo?.surface || "の", parts });
+      caseMarker: finalNo.surface
+    }));
+  }
+
+  return node("N″", [node("N′", nBarChildren)], null, {
+    case: "genitive",
+    caseMarker: finalNo?.surface || "の",
+    parts
+  });
 }
 
 function genitiveNominalProjection(group) {
@@ -63,7 +70,7 @@ function genitiveNominalProjection(group) {
     particle: markerSurface,
     markerType: group.markerType
   }));
-  return node("N″", children, group.surface, {
+  return node("N″", children, null, {
     particle: finalMarker?.surface ?? group.particle,
     markerType: group.markerType,
     parts
