@@ -46,6 +46,65 @@
 .tree-context-menu button{display:block;width:100%;height:25px;padding:3px 22px 3px 26px;border:1px solid transparent;background:transparent;text-align:left;white-space:nowrap}
 .tree-context-menu button:hover{border-color:#e39a21;background:linear-gradient(#fffbd9,#ffc64e)}
 .tree-context-menu hr{margin:2px 4px;border:0;border-top:1px solid #b7c9d7}
+/* Office 2007 precision pass - compact Fluent Ribbon geometry */
+:root{--ui-font:Tahoma,"Segoe UI","Meiryo UI",sans-serif;--o7-blue0:#f7fbff;--o7-blue1:#dbeaf7;--o7-blue2:#b8d2e9;--o7-blue3:#89afd3;--o7-blue4:#5c8fbe;--o7-blue5:#2e6ea8;--o7-border:#7898b6;--o7-dark:#315e86;--o7-hot:#f5a623}
+html,body{font-family:var(--ui-font)!important;font-size:11px!important;background:#6f94c1!important}
+#app{border:1px solid #376d9d!important;border-radius:5px 5px 0 0!important;box-shadow:0 0 0 1px #d9f0ff inset!important}
+.titlebar{height:28px!important;min-height:28px!important;padding-left:154px!important;border-radius:5px 5px 0 0!important;background:linear-gradient(#d9f3ff 0,#87c8eb 8%,#4ba5d8 32%,#2d8bc6 49%,#1674b5 51%,#3a95cd 83%,#88cae9 100%)!important;box-shadow:inset 0 1px #fff,inset 0 -1px #246eaa!important}
+.titlebar:after{height:36%!important;background:linear-gradient(90deg,#fff0,#fff7 40%,#fff0 73%)!important}
+.titletext{font:12px Tahoma,sans-serif!important;font-weight:normal!important;line-height:27px!important;text-shadow:0 1px #1c6090!important;letter-spacing:.1px!important}
+.office-button{left:10px!important;top:4px!important;width:43px!important;height:43px!important;padding:6px!important;border:1px solid #2677aa!important;background:radial-gradient(circle at 35% 27%,#fff 0,#d6f2ff 16%,#7cc5eb 34%,#328fc9 54%,#1266a2 76%,#80c8eb 100%)!important;box-shadow:0 0 0 2px #f1fbff,0 0 0 3px #5d93bb,0 2px 3px #28557499,inset 0 2px 3px #fff!important}
+.office-button img{width:30px!important;height:30px!important}.qat{left:59px!important;top:4px!important;height:20px!important;border:0!important;background:transparent!important;box-shadow:none!important}.qat button{width:24px!important;height:19px!important;padding:2px!important}.qat button:hover{border:1px solid #d99421!important;background:linear-gradient(#fffdf1,#ffe99d 51%,#ffc857 52%,#ffe8a7)!important}
+#tabs{height:29px!important;min-height:29px!important;padding-left:58px!important;gap:0!important;background:linear-gradient(#dcebf8 0,#c3dcf0 58%,#a8cae3 100%)!important;border-bottom:1px solid #6d93b1!important}
+.tab{height:25px!important;min-width:55px!important;margin:0!important;padding:4px 12px 3px!important;border-radius:3px 3px 0 0!important;font:11px Tahoma,sans-serif!important;color:#174d77!important}
+.tab.active{height:26px!important;margin-bottom:-1px!important;background:linear-gradient(#fff,#f3f8fc 49%,#e0edf6 50%,#fff)!important;border:1px solid #7d9ab3!important;border-bottom-color:#fff!important;box-shadow:inset 0 1px #fff!important}
+.ribbon{height:90px!important;min-height:90px!important;padding:1px 4px 0!important;background:linear-gradient(#fff 0,#fdfefe 44%,#edf4f9 45%,#d8e7f2 76%,#bdD5e6 100%)!important;border-bottom:1px solid #6d8ca5!important;box-shadow:inset 0 1px #fff,inset 0 -1px #edf7ff!important}
+.rpage,.group{height:88px!important}.group{padding:1px 4px 0!important;border-right:1px solid #9bb3c7!important;box-shadow:1px 0 #fff!important}.grow{height:69px!important;gap:2px!important}.gtitle{height:15px!important;line-height:14px!important;font:10px Tahoma,sans-serif!important;color:#4b6d85!important}.group:after{bottom:15px!important;left:2px!important;right:2px!important}
+.rbtn{min-height:21px!important;padding:2px 5px!important;border-radius:2px!important;font:11px Tahoma,sans-serif!important}.rbtn.large{min-width:49px!important;padding:3px 5px 1px!important}.rbtn span{line-height:1.15!important}.ico{width:16px!important;height:16px!important;stroke-width:1.45!important}.large .ico{width:28px!important;height:28px!important}.col{gap:1px!important}
+.rbtn:hover,.tree-toolbar button:hover,.resulttabs button:hover:not(.active){border:1px solid #e09a2b!important;background:linear-gradient(#fffdf1 0,#fff2b8 46%,#ffc858 49%,#ffe9a5 100%)!important;box-shadow:inset 0 0 0 1px #fff8d9!important}.rbtn:active{background:linear-gradient(#e99d2e,#ffd26a)!important;box-shadow:inset 0 1px 3px #b96b0d!important}
+.workspace{margin:7px 142px 3px!important;grid-template-columns:360px minmax(0,1fr)!important;border:1px solid #345e81!important;box-shadow:0 0 0 1px #e6f2fb,1px 2px 6px #284a6666!important;background:#fff!important;position:relative!important}
+.workspace:before,.workspace:after{content:"";position:absolute;top:-1px;bottom:-1px;width:140px;pointer-events:none;background:linear-gradient(135deg,#a9c4df 0,#87a9ce 62%,#769bc5 100%)}.workspace:before{right:100%;border-right:1px solid #52789b}.workspace:after{left:100%;border-left:1px solid #52789b}
+.leftpane{background:#eef5fa!important;border-right:1px solid #6d8fa9!important}.panehead{height:25px!important;padding:5px 8px!important;font:bold 11px Tahoma,sans-serif!important;background:linear-gradient(#fbfdff 0,#e9f2f8 47%,#c7dceB 50%,#e0edf5 100%)!important;border-bottom:1px solid #849fb4!important}.editorbox{padding:7px!important;background:#f4f8fb!important}.editorbox textarea{border:1px solid #7893a9!important;border-radius:0!important;box-shadow:inset 1px 1px 2px #b3c0ca!important}.inline-analyze,.linecontrols button{border-radius:1px!important;background:linear-gradient(#fff,#edf5fa 47%,#caddea 50%,#f7fbfd)!important}.clauselist{background:#eef4f8!important;padding:5px!important}.clause{border-radius:1px!important;background:linear-gradient(#fff,#f6f9fb 49%,#e2edf4 50%,#fff)!important}.clause.active{background:linear-gradient(#fffce9,#ffedaa 48%,#ffc95a 51%,#ffefad)!important}
+.rightpane{box-shadow:inset 1px 0 #fff!important}.resulttabs{height:29px!important;padding:2px 3px 0!important;background:linear-gradient(#eef6fb,#d3e4ef 49%,#b9d2e4 50%,#dbeaf3)!important}.resulttabs button{height:27px!important;padding:4px 12px!important;font:11px Tahoma,sans-serif!important}.resulthead{padding:6px 8px!important}.scorebox{padding:5px!important}.results{padding:7px!important}.path,.chip{border-radius:1px!important}
+.tree-toolbar{min-height:29px!important;padding:2px 3px!important;background:linear-gradient(#fff,#edf5fa 47%,#caddea 50%,#f3f9fc)!important}.tree-toolbar button{height:23px!important;padding:2px 7px!important;border-radius:1px!important}.tree-editor{border-color:#6c879c!important}.tree-workspace{background:#fff!important;box-shadow:inset 0 1px 2px #a8b6c0!important}.tree-selection{stroke:#e3a028!important;fill:#ffe69455!important}
+.statusbar{height:22px!important;min-height:22px!important;font:10px Tahoma,sans-serif!important;background:linear-gradient(#f4fbff 0,#d8ebf6 46%,#a8cde5 50%,#d4e9f5 100%)!important;border-top:1px solid #5681a4!important}.statusbar>span{line-height:21px!important}
+.backstage{top:27px!important;left:8px!important;border-radius:2px!important}.backnav{background:linear-gradient(90deg,#0e5e9b,#167aba 70%,#0b5d98)!important}.wizard,.dialog{border-radius:2px!important}.wizhead,.dlgtitle{font-size:12px!important}
+/* 2007-era micro-details */
+button:focus-visible{outline:1px dotted #2d4d65!important;outline-offset:-3px!important}select,input,textarea{font:11px Tahoma,"Meiryo UI",sans-serif!important}::-webkit-scrollbar{width:16px;height:16px}::-webkit-scrollbar-track{background:linear-gradient(90deg,#d7e5f0,#f4f8fb,#c3d8e8);border:1px solid #7897ae}::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#eef7fc,#afcde2 47%,#7fa9ca 51%,#d8e9f4);border:1px solid #6388a5;box-shadow:inset 0 0 0 1px #eff8fd}::-webkit-scrollbar-button{background:linear-gradient(#f8fcff,#b9d2e5);border:1px solid #688da8}
+@media(max-width:1180px){.workspace{margin-left:18px!important;margin-right:18px!important}.workspace:before,.workspace:after{display:none}.workspace{grid-template-columns:350px minmax(0,1fr)!important}}
+
+
+/* Umiri Editor tabs: force readable foregrounds in every state. */
+#tabs .tab.editor-tab,
+#tabs .editor-tab:not(.active),
+body.editor-mode #tabs .editor-tab:not(.active){
+  color:#ffffff!important;
+  text-shadow:0 1px 1px #123f62!important;
+  font-weight:600!important;
+}
+#tabs .editor-tab:not(.active):hover,
+body.editor-mode #tabs .editor-tab:not(.active):hover{
+  color:#ffffff!important;
+  text-shadow:0 1px 1px #0b3554!important;
+  background:linear-gradient(#5f9dc8 0%,#357cac 48%,#1e6595 52%,#397fae 100%)!important;
+  border-color:#255f8b!important;
+}
+#tabs .editor-tab.active,
+body.editor-mode #tabs .editor-tab.active,
+#tabs .editor-tab.active:hover,
+body.editor-mode #tabs .editor-tab.active:hover{
+  color:#173f5f!important;
+  text-shadow:0 1px 0 #ffffff!important;
+  font-weight:700!important;
+  background:linear-gradient(#ffffff 0%,#f8fbfd 48%,#dceaf4 52%,#f7fbfd 100%)!important;
+  border-color:#567d9b!important;
+  border-bottom-color:#f7fbfd!important;
+}
+#tabs .editor-tab:focus-visible{
+  outline:1px dotted currentColor!important;
+  outline-offset:-4px!important;
+}
+
 </style>
 <link rel="stylesheet" href="./src/styles/office-2007.css"></head>
 <body>
@@ -202,4 +261,6 @@ splitInput(false);if(!setupDone())showWizard();
 })();
 </script>
 </body></html>
+
+
 
