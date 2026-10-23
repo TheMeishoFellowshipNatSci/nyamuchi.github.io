@@ -17,62 +17,62 @@ function nominalLeaf(surface, metadata = {}) {
 }
 
 function genitiveSpecifier(parts) {
-  // 属格指定部を必ず内部構造として投射する。
-  // 例: 「私の」 -> [N″ [N′ [N 私] [P の]]]
-  const finalNo = parts.at(-1)?.surface === "の" ? parts.at(-1) : null;
-  const core = finalNo ? parts.slice(0, -1) : parts;
-  const lastNounIndex = core.map(part => part.pos).lastIndexOf("N");
-
-  if (lastNounIndex < 0) {
-    return nominalLeaf(core.map(part => part.surface).join(""), {
-      case: "genitive",
-      caseMarker: finalNo?.surface || "の",
-      parts
-    });
-  }
-
-  const head = core[lastNounIndex];
-  const preceding = core.slice(0, lastNounIndex);
-  const nBarChildren = [];
-  if (preceding.length) nBarChildren.push(genitiveSpecifier(preceding));
-  nBarChildren.push(node("N", [], head.surface, { base: head.base }));
-  if (finalNo) {
-    nBarChildren.push(node("P", [], finalNo.surface, {
-      case: "genitive",
-      caseMarker: finalNo.surface
-    }));
-  }
-
-  return node("N″", [node("N′", nBarChildren)], null, {
+  // 属格指定部は完全な名詞投射として表示する。
+  // 「私の」 -> N″ -> N′ -> N「私の」
+  const surface = parts.map(part => part.surface).join("");
+  const noun = [...parts].reverse().find(part => part.pos === "N");
+  return node("N″", [
+    node("N′", [
+      node("N", [], surface, {
+        base: noun?.base || noun?.surface,
+        case: "genitive",
+        caseMarker: "の",
+        parts
+      })
+    ])
+  ], null, {
     case: "genitive",
-    caseMarker: finalNo?.surface || "の",
+    caseMarker: "の",
     parts
   });
 }
 
 function genitiveNominalProjection(group) {
   const parts = group.parts ?? [];
-  const finalMarker = [...parts].reverse().find(part => part.pos === "P" && part.surface !== "の");
-  const nominalParts = finalMarker ? parts.slice(0, parts.lastIndexOf(finalMarker)) : parts;
+  const finalMarker = [...parts].reverse().find(
+    part => part.pos === "P" && part.surface !== "の"
+  );
+  const nominalParts = finalMarker
+    ? parts.slice(0, parts.lastIndexOf(finalMarker))
+    : parts;
   const headIndex = nominalParts.map(part => part.pos).lastIndexOf("N");
   const head = nominalParts[headIndex];
   const specifierParts = nominalParts.slice(0, headIndex);
   const specifier = genitiveSpecifier(specifierParts);
+  const topicMarker = finalMarker?.surface ?? group.particle ?? null;
 
-  // 本書のXバー方式: N″ → 指定部 N′、N′ → N（＋補語）。
-  // 「私の」はP″ではなく、属格をもつN″指定部。主要部は「父」。
-  const nBar = node("N′", [node("N", [], head?.surface || group.base || group.content || "", {
-    base: head?.base || group.base
-  })]);
-  const markerSurface = finalMarker?.surface ?? group.particle;
-  const children = [specifier, nBar];
-  if (markerSurface) children.push(node("P", [], markerSurface, {
-    particle: markerSurface,
-    markerType: group.markerType
-  }));
-  return node("N″", children, null, {
-    particle: finalMarker?.surface ?? group.particle,
+  // Xバー構造:
+  // N″ [topic: は] -> 指定部 N″ + N′
+  // 指定部「私の」 -> N″ -> N′ -> N
+  // 主辞「母」     -> N′ -> N
+  // 「は」はN主要部へ混ぜず、外側N″のtopicメタデータとして保持する。
+  const label = topicMarker
+    ? `N″ [topic: ${topicMarker}]`
+    : "N″";
+
+  return node(label, [
+    specifier,
+    node("N′", [
+      node("N", [], head?.surface || group.base || group.content || "", {
+        base: head?.base || group.base
+      })
+    ])
+  ], null, {
+    particle: topicMarker,
+    topic: topicMarker,
     markerType: group.markerType,
+    displayLabel: topicMarker ? `topic: ${topicMarker}` : null,
+    surface: group.surface,
     parts
   });
 }
