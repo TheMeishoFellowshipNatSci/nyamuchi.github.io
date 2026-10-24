@@ -267,7 +267,1071 @@ body.editor-mode #tabs{
 .umiri-copyright{color:#28495d!important}
 
 </style>
-<link rel="stylesheet" href="./src/styles/office-2007.css"></head>
+<link rel="stylesheet" href="./src/styles/office-2007.css">
+<style id="o7-ribbon-master">
+/* Office 2007 ribbon master pass. Original controls and actions are retained. */
+:root{--rb-ink:#173f63;--rb-line:#8eabc1;--rb-dark:#557e9f;--rb-hot:#e09b20}
+html,body{font-family:Tahoma,"Meiryo UI",Meiryo,sans-serif!important;background:#7199c7!important;color:var(--rb-ink)!important;font-size:11px!important}
+#app{border:0!important;border-radius:0!important;background:#7199c7!important;box-shadow:none!important}
+/* Requested Umiri title treatment: water-blue glass with white lettering. */
+#app .titlebar{height:34px!important;min-height:34px!important;padding:0 170px!important;position:relative!important;border:0!important;border-top:1px solid #d9f5ff!important;border-bottom:1px solid #376f9b!important;border-radius:6px 6px 0 0!important;background:linear-gradient(180deg,#bceafa 0%,#70c1e2 9%,#2695c6 34%,#0a6fa9 51%,#176fa7 56%,#4aa4ce 79%,#a0daee 100%)!important;box-shadow:inset 0 1px #fff,inset 0 -1px rgba(255,255,255,.55)!important}
+#app .titlebar:before{content:""!important;position:absolute!important;left:1px!important;right:1px!important;top:1px!important;height:47%!important;border-radius:6px 6px 48% 48%!important;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.08))!important;pointer-events:none!important}
+#app .titlebar:after{content:""!important;position:absolute!important;left:0!important;right:0!important;bottom:1px!important;height:1px!important;background:rgba(255,255,255,.45)!important}
+#app .titletext{position:relative!important;z-index:1!important;height:33px!important;line-height:31px!important;color:#fff!important;text-align:center!important;font:12px Tahoma,"Meiryo UI",sans-serif!important;font-weight:bold!important;text-shadow:0 1px 1px #084f7b,0 0 2px #08476e!important}
+/* Office orb and QAT */
+#app .office-button{left:7px!important;top:4px!important;width:51px!important;height:51px!important;padding:3px!important;border:1px solid #3c739c!important;border-radius:50%!important;background:radial-gradient(circle at 34% 25%,#fff 0 7%,#dfF4fc 17%,#8fc9e2 36%,#459bc5 57%,#1d70a2 72%,#d7eef7 74%,#74acca 84%,#2c749c 100%)!important;box-shadow:0 0 0 2px #f9fdff,0 0 0 3px #79a3bf,0 2px 4px #294f6988,inset 0 2px 3px #fff!important;display:grid!important;place-items:center!important}
+#app .office-button img{width:37px!important;height:37px!important;position:relative!important;z-index:1!important}
+#app .office-button:hover{border-color:#c67708!important;background:radial-gradient(circle at 34% 25%,#fff8c7 0 8%,#ffe26d 20%,#f5b521 42%,#df8100 63%,#b35900 77%,#ffe37b 79%,#e79a15 90%,#a34b00 100%)!important;box-shadow:0 0 0 2px #fff5bd,0 0 0 3px #da971f,0 0 7px #ffc944,inset 0 2px 3px #fff!important}
+#app .qat{left:65px!important;top:5px!important;height:23px!important;padding:0 3px!important;gap:0!important;border:1px solid #4b87ae!important;border-top-color:#d7f1fc!important;border-radius:3px!important;background:linear-gradient(180deg,rgba(251,254,255,.94),rgba(181,222,239,.9) 45%,rgba(86,163,201,.84) 51%,rgba(187,225,241,.93) 100%)!important;box-shadow:inset 0 1px #fff,0 1px rgba(0,53,84,.25)!important}
+#app .qat:after{content:none!important}#app .qat button{width:28px!important;height:21px!important;padding:2px!important;border:1px solid transparent!important;border-radius:2px!important;background:transparent!important}
+#app .qat button:hover{border-color:#df9d25!important;background:linear-gradient(#fffef0,#fff1bc 46%,#ffc64e 52%,#ffebaa)!important}
+/* Tab strip. Standard tabs are pale. Structure/editor tabs form a distinct contextual blue zone. */
+#app #tabs{height:36px!important;min-height:36px!important;padding:0 0 0 73px!important;gap:0!important;align-items:flex-end!important;border:0!important;border-bottom:1px solid #6a91b1!important;background:linear-gradient(180deg,#dbeafa 0%,#c8def2 42%,#aacbe7 50%,#b9d4eb 100%)!important;box-shadow:inset 0 1px #f8fcff!important}
+#app .tab{height:32px!important;min-width:68px!important;margin:0!important;padding:7px 14px 6px!important;border:1px solid transparent!important;border-bottom:0!important;border-radius:3px 3px 0 0!important;background:transparent!important;color:#174b72!important;font:11px Tahoma,"Meiryo UI",sans-serif!important;font-weight:normal!important;text-shadow:0 1px #fff!important}
+#app .tab:hover:not(.active){border-color:#87a8c0!important;background:linear-gradient(#fff,#e8f3f9 48%,#c9dfed 52%,#eff7fb)!important}
+#app .tab.active{height:33px!important;margin-bottom:-1px!important;border-color:#7597b3!important;border-bottom:1px solid #f9fcfe!important;background:linear-gradient(180deg,#fff 0%,#fff 41%,#e9f2f8 48%,#d6e7f2 53%,#f8fbfd 100%)!important;color:#17466a!important}
+/* Original structure-diagram section stays visibly separate. */
+#app .tab.editor-tab{min-width:82px!important;color:#fff!important;border-left-color:rgba(255,255,255,.12)!important;border-right-color:#174f7d!important;border-radius:3px 3px 0 0!important;background:linear-gradient(180deg,#3a80af 0%,#246d9e 47%,#125584 52%,#236b9b 100%)!important;text-shadow:0 1px #0b4167!important;box-shadow:inset 0 1px rgba(255,255,255,.38)!important}
+#app .tab.editor-tab:hover:not(.active){background:linear-gradient(#5c98bd,#347daa 46%,#1d6593 52%,#3a80aa)!important}
+#app .tab.editor-tab.active{height:33px!important;color:#123f63!important;border-color:#7699b5!important;border-bottom-color:#f8fbfd!important;background:linear-gradient(#fff,#f5f9fc 43%,#dceaf4 50%,#f7fbfd)!important;text-shadow:0 1px #fff!important;box-shadow:inset 0 1px #fff!important}
+/* Ribbon surface: white upper field, subtle middle seam, blue lower wash exactly like the references. */
+#app .ribbon,body.editor-mode #app .ribbon{height:106px!important;min-height:106px!important;padding:0 3px!important;border:0!important;border-bottom:1px solid #6488a5!important;background:linear-gradient(180deg,#ffffff 0%,#fdfefe 34%,#f5f9fb 42%,#e5eef5 48%,#d5e5f0 64%,#c4dbe9 84%,#b5d0e1 100%)!important;box-shadow:inset 0 1px #fff,inset 0 -1px #edf7fc!important;overflow:hidden!important}
+#app .rpage,#app .rpage.editor-page,body.editor-mode #app .rpage{height:104px!important;min-width:max-content!important;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.03) 47%,rgba(91,142,176,.035) 48%,rgba(255,255,255,.10))!important}
+#app .group,#app .rpage.editor-page .group{height:103px!important;padding:3px 5px 0!important;border:0!important;border-right:1px solid #91aec4!important;background:transparent!important;box-shadow:1px 0 #fff!important;position:relative!important}
+#app .group:first-child{border-left:1px solid rgba(255,255,255,.65)!important}.group:last-child{box-shadow:none!important}
+#app .grow,#app .rpage .grow{height:82px!important;gap:3px!important;align-items:flex-start!important;overflow:hidden!important}
+#app .col,#app .rpage .col{height:78px!important;display:grid!important;grid-auto-flow:row!important;grid-auto-rows:24px!important;align-content:start!important;gap:1px!important}
+#app .gtitle{height:18px!important;line-height:17px!important;padding:0 13px!important;color:#527087!important;font:10px Tahoma,"Meiryo UI",sans-serif!important;text-align:center!important;text-shadow:0 1px #fff!important;background:linear-gradient(180deg,transparent,rgba(255,255,255,.24))!important;position:relative!important}
+#app .gtitle:after{content:""!important;position:absolute!important;right:2px!important;bottom:4px!important;width:5px!important;height:5px!important;border-right:1px solid #718da3!important;border-bottom:1px solid #718da3!important}
+/* Button typography, icon scale and Office 2007 yellow interaction states. */
+#app .rbtn{height:24px!important;min-height:24px!important;padding:2px 5px!important;gap:4px!important;border:1px solid transparent!important;border-radius:2px!important;background:transparent!important;color:#173f63!important;font:11px Tahoma,"Meiryo UI",sans-serif!important;text-shadow:0 1px #fff!important;white-space:nowrap!important;box-shadow:none!important}
+#app .rbtn.large{height:78px!important;min-height:78px!important;min-width:60px!important;padding:5px 6px 3px!important;gap:3px!important;justify-content:flex-start!important;align-items:center!important;text-align:center!important;white-space:normal!important}
+#app .rbtn .ico,#app .rbtn .o7-icon{width:16px!important;height:16px!important;stroke:#24587d!important;filter:drop-shadow(0 1px #fff)!important}
+#app .rbtn.large .ico,#app .rbtn.large .o7-icon{width:32px!important;height:32px!important;margin:1px auto 2px!important}
+#app .rbtn:hover{border-color:#df9a20!important;background:linear-gradient(180deg,#fffef5 0%,#fff7d0 38%,#ffe89d 44%,#ffd36a 49%,#ffc044 54%,#ffe28e 69%,#fff1ba 100%)!important;box-shadow:inset 0 0 0 1px #fff8d8!important}
+#app .rbtn:active,#app .rbtn[aria-pressed="true"]{border-color:#ba6d08!important;background:linear-gradient(#dc8e1c,#f1ae33 38%,#ffd066 48%,#e2941b 55%,#f2bd4c)!important;box-shadow:inset 0 2px 3px #8b4a0866!important}
+#app .rbtn:disabled{opacity:.43!important;filter:grayscale(.65)!important}
+/* Rules page keeps its original controls but shares the contextual ribbon color. */
+#app #r-treerules{background:linear-gradient(180deg,#f8fbfe 0%,#edf5fa 46%,#d5e7f2 52%,#bdd8e9 100%)!important}
+#app #r-treerules .rule-card,#app #r-treerules input,#app #r-treerules select{border-color:#7f9eb5!important;border-radius:0!important;box-shadow:inset 1px 1px 2px #bdc8cf!important}
+/* The rest of the application remains the improved supplied layout. */
+#app .workspace{margin-top:39px!important;height:calc(100vh - 235px)!important}
+@media(max-width:1100px){#app .ribbon{overflow-x:auto!important}#app .tab{padding-left:10px!important;padding-right:10px!important;min-width:56px!important}#app .tab.editor-tab{min-width:68px!important}}
+</style>
+<style id="o7-precision-corrections">
+/* Precision correction pass against the supplied 1920px Office 2007 captures. */
+#app,#app *{box-sizing:border-box}
+/* Exact top stack: 30px title + 30px tabs + 106px ribbon = 166px. */
+#app .titlebar{height:30px!important;min-height:30px!important;max-height:30px!important;padding:0 166px!important;border-radius:5px 5px 0 0!important;background:linear-gradient(180deg,#bceafa 0%,#72c3e3 10%,#2c9aca 32%,#0e75ae 49%,#0b659e 54%,#3c9bc8 78%,#a0daee 100%)!important}
+#app .titlebar:before{height:43%!important;border-radius:5px 5px 45% 45%!important}
+#app .titletext{height:29px!important;line-height:28px!important;font-size:12px!important;letter-spacing:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+/* Orb dimensions and ring geometry match the 46px Word/PowerPoint orb. */
+#app .office-button{left:6px!important;top:4px!important;width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;max-width:46px!important;max-height:46px!important;padding:5px!important;border:1px solid #47799e!important;background:linear-gradient(180deg,#f9fdff 0%,#e8f4fa 39%,#b8d6e7 47%,#83aec8 51%,#c6e0ed 59%,#f1f8fc 100%)!important;box-shadow:0 0 0 1px #fff,0 0 0 2px #769eb9,0 1px 3px #31536b88,inset 0 1px 2px #fff,inset 0 -2px 2px #7196ad55!important}
+#app .office-button:before{content:""!important;position:absolute!important;inset:3px!important;border:1px solid rgba(255,255,255,.92)!important;border-radius:50%!important;background:radial-gradient(circle at 31% 24%,rgba(255,255,255,.8),rgba(255,255,255,0) 39%)!important;pointer-events:none!important}
+#app .office-button img{width:34px!important;height:34px!important;max-width:34px!important;max-height:34px!important;object-fit:contain!important;filter:none!important}
+#app .qat{left:58px!important;top:4px!important;height:22px!important;min-height:22px!important;max-height:22px!important;background:linear-gradient(#fff,#eef5f9 45%,#c7dce8 51%,#eef5f9)!important;border-color:#8aaac0!important;border-top-color:#d8eaf5!important}
+#app .qat button{height:20px!important;min-height:20px!important;max-height:20px!important}
+#app #tabs{height:30px!important;min-height:30px!important;max-height:30px!important;padding-left:59px!important;background:linear-gradient(180deg,#d8eafb 0%,#c5def4 43%,#accdea 51%,#bdd8ee 100%)!important}
+#app .tab{height:28px!important;min-height:28px!important;max-height:28px!important;min-width:59px!important;padding:5px 12px 4px!important}
+#app .tab.active,#app .tab.editor-tab.active{height:29px!important;min-height:29px!important;max-height:29px!important}
+#app .tab.editor-tab{min-width:74px!important;padding-left:13px!important;padding-right:13px!important;background:linear-gradient(180deg,#3c84b2 0%,#2772a1 46%,#155989 52%,#246d9d 100%)!important}
+/* Ribbon is restrained and full width. Content groups occupy only their natural width, as in Office. */
+#app .ribbon,body.editor-mode #app .ribbon{height:106px!important;min-height:106px!important;max-height:106px!important;width:100%!important;padding:0 3px!important;background:linear-gradient(180deg,#fff 0%,#fff 35%,#f9fbfc 41%,#edf3f7 47%,#dce9f2 62%,#cadfeC 84%,#b8d2e3 100%)!important}
+#app .rpage,#app .rpage.editor-page,body.editor-mode #app .rpage{height:104px!important;min-height:104px!important;max-height:104px!important;width:100%!important;justify-content:flex-start!important;align-items:stretch!important;background:transparent!important}
+#app .group,#app .rpage.editor-page .group{height:103px!important;min-height:103px!important;max-height:103px!important;padding:3px 5px 0!important;flex:0 0 auto!important;border-right:1px solid #94b0c5!important;box-shadow:1px 0 #fff!important}
+#app .grow,#app .rpage .grow{height:82px!important;min-height:82px!important;max-height:82px!important;align-items:flex-start!important;overflow:hidden!important}
+#app .col,#app .rpage .col{height:78px!important;min-height:78px!important;max-height:78px!important;grid-template-rows:24px 24px 24px!important;grid-auto-rows:24px!important}
+#app .gtitle{height:18px!important;min-height:18px!important;max-height:18px!important;line-height:17px!important}
+#app .rbtn{height:24px!important;min-height:24px!important;max-height:24px!important;line-height:17px!important}
+#app .rbtn.large{height:78px!important;min-height:78px!important;max-height:78px!important}
+/* Remove forced dialog-launch glyph from groups that do not own one. */
+#app .gtitle:after{content:none!important}
+/* Restore the application's original edge/status layout. No relocated zoom controls remain. */
+#app .workspace{margin-top:39px!important;height:calc(100vh - 228px)!important}
+#app .statusbar{left:0!important;right:0!important;bottom:0!important;width:100%!important;height:22px!important;min-height:22px!important;max-height:22px!important;overflow:hidden!important}
+#app .statusbar>span{height:21px!important;line-height:21px!important;white-space:nowrap!important}
+#app .statusbar .o7zoom{display:none!important}
+/* Existing structure-canvas zoom stays inside Structure only. */
+#app #structure .tree-canvas-status{display:flex!important;position:absolute!important;right:0!important;bottom:0!important;left:auto!important;width:auto!important;height:28px!important;z-index:8!important}
+#app #paths .tree-canvas-status,#app #morph .tree-canvas-status{display:none!important}
+@media(max-width:1100px){#app .titlebar{padding-left:150px!important;padding-right:150px!important}#app .tab{min-width:54px!important;padding-left:9px!important;padding-right:9px!important}#app .tab.editor-tab{min-width:65px!important}}
+</style>
+<style id="o7-final-verified">
+/* Final verified refinement: exact Office orb overlap and compact Office 2007 menu. */
+/* Orb centre and overlap: 46x46 at (6,4), crossing the 30px title/tabs seam by 16px. */
+#app .office-button{left:6px!important;top:4px!important;width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;padding:4px!important;overflow:visible!important;border:1px solid #4a7899!important;border-radius:50%!important;background:linear-gradient(180deg,#fbfeff 0%,#edf7fb 38%,#d8e9f2 46%,#96b8cd 51%,#c9e1ed 60%,#f2f9fc 100%)!important;box-shadow:0 0 0 1px #fff,0 0 0 2px #80a5be,0 1px 3px rgba(35,67,89,.55),inset 0 1px 2px #fff,inset 0 -1px 2px rgba(63,105,134,.30)!important;display:grid!important;place-items:center!important}
+#app .office-button:before{content:""!important;position:absolute!important;inset:3px!important;border:1px solid rgba(255,255,255,.92)!important;border-radius:50%!important;background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,0) 45%,rgba(52,108,145,.07) 46%,rgba(255,255,255,.16))!important;pointer-events:none!important}
+#app .office-button:after{content:""!important;position:absolute!important;left:8px!important;right:8px!important;top:5px!important;height:11px!important;border-radius:50%!important;background:linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,0))!important;pointer-events:none!important}
+#app .office-button img{position:relative!important;z-index:2!important;width:34px!important;height:34px!important;max-width:34px!important;max-height:34px!important;object-fit:contain!important;background:transparent!important;filter:none!important}
+#app .office-button:hover,body:has(#backstage:not(.hidden)) #app .office-button{border-color:#c2790b!important;background:linear-gradient(#fff7cc,#ffe486 40%,#f1b12d 49%,#d67c04 54%,#f2b63a 65%,#ffeda0)!important;box-shadow:0 0 0 1px #fff6ce,0 0 0 2px #d89a25,0 0 5px rgba(255,189,43,.75),inset 0 1px 2px #fff!important}
+#app .qat{left:58px!important;top:4px!important;height:22px!important;padding:0 4px 0 2px!important;border:1px solid #94afc3!important;border-top-color:#ddedf6!important;border-radius:2px!important;background:linear-gradient(#fff,#f3f8fb 44%,#d5e6ef 49%,#c5dce9 54%,#edf5f9)!important;box-shadow:inset 0 1px #fff!important}
+/* Ribbon palette sampled visually from the supplied Office 2007 capture. */
+#app #tabs{background:linear-gradient(180deg,#dceafa 0%,#cee1f4 42%,#b8d3ed 50%,#c7ddf1 100%)!important;border-bottom-color:#7d9db5!important}
+#app .ribbon,body.editor-mode #app .ribbon{background:linear-gradient(180deg,#fff 0%,#fff 30%,#fcfdfe 39%,#f7f9fa 44%,#edf3f7 49%,#e2edf4 57%,#d5e5ef 69%,#c9dfeC 84%,#bed6e5 100%)!important;border-bottom-color:#7897ad!important;box-shadow:inset 0 1px #fff,inset 0 -1px #edf6fa!important}
+#app .rpage,#app .rpage.editor-page,body.editor-mode #app .rpage{background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.10) 44%,rgba(83,133,168,.025) 45%,rgba(255,255,255,.07))!important}
+#app .group,#app .rpage.editor-page .group{border-right-color:#9eb5c5!important;box-shadow:1px 0 rgba(255,255,255,.95)!important}
+#app .gtitle{color:#557188!important;text-shadow:0 1px #fff!important}
+/* Compact Office 2007 application menu. */
+#backstage{position:fixed!important;z-index:1000!important;left:1px!important;top:34px!important;width:532px!important;height:538px!important;display:grid!important;grid-template-columns:226px 306px!important;grid-template-rows:503px 35px!important;border:1px solid #527b9c!important;border-radius:0 0 3px 3px!important;background:#e6e8eb!important;box-shadow:1px 2px 0 #c7deee,3px 5px 13px rgba(25,54,75,.55)!important;overflow:hidden!important}
+#backstage.hidden{display:none!important}
+#backstage .backnav{position:relative!important;grid-column:1!important;grid-row:1 / 3!important;width:226px!important;height:538px!important;padding:21px 8px 40px!important;display:flex!important;flex-direction:column!important;gap:1px!important;border-right:1px solid #b8bec4!important;background:#fff!important;overflow:hidden!important}
+#backstage .backnav button{position:relative!important;flex:0 0 50px!important;width:100%!important;height:50px!important;min-height:50px!important;padding:5px 13px 5px 50px!important;border:1px solid transparent!important;border-radius:0!important;background:transparent!important;color:#003b78!important;text-align:left!important;font:12px Tahoma,"Meiryo UI",sans-serif!important;text-shadow:none!important;white-space:nowrap!important}
+#backstage .backnav button .o7-menu-icon{position:absolute!important;left:10px!important;top:10px!important;width:28px!important;height:28px!important;stroke:#526b80!important;fill:#fff!important;stroke-width:1.25!important;stroke-linecap:round!important;stroke-linejoin:round!important;filter:drop-shadow(0 1px #fff)!important}
+#backstage .backnav button:hover{border-color:#dfa027!important;background:linear-gradient(#fffef1,#fff2be 45%,#ffd46b 51%,#ffc249 55%,#ffe9a4)!important;color:#003b78!important}
+/* Close is placed in the lower strip, matching the source menu's footer buttons. */
+#backstage .backnav #backClose{position:absolute!important;right:8px!important;bottom:5px!important;width:96px!important;height:25px!important;min-height:25px!important;padding:3px 8px 3px 30px!important;border:1px solid #7d99ae!important;background:linear-gradient(#fff,#edf4f8 46%,#c9dce8 52%,#f0f6f9)!important;z-index:3!important}
+#backstage .backnav #backClose .o7-menu-icon{left:7px!important;top:4px!important;width:16px!important;height:16px!important}
+#backstage .backmain{grid-column:2!important;grid-row:1!important;width:306px!important;height:503px!important;padding:20px 12px!important;border-left:1px solid #fff!important;background:linear-gradient(180deg,#eceef1,#e4e6e9)!important;color:#222!important;overflow:hidden!important}
+#backstage .backmain img{display:block!important;width:112px!important;height:112px!important;max-width:112px!important;max-height:112px!important;margin:0 auto 12px!important;object-fit:contain!important}
+#backstage .backmain h2{margin:0 0 12px!important;padding:0 0 7px!important;border-bottom:1px solid #c1c4c8!important;color:#173c61!important;font:normal 15px Tahoma,"Meiryo UI",sans-serif!important}
+#backstage .backmain p{margin:8px 0!important;color:#222!important;font:11px Tahoma,"Meiryo UI",sans-serif!important;line-height:1.45!important}
+#backstage .backmain .powered-line{margin-top:15px!important;color:#444!important}
+#backstage:after{content:""!important;position:absolute!important;left:225px!important;right:0!important;bottom:0!important;height:35px!important;border-top:1px solid #88a6bd!important;background:linear-gradient(#f9fcfe,#e5f0f7 44%,#bfd5e5 51%,#e8f3f8)!important;box-shadow:inset 0 1px #fff!important;pointer-events:none!important}
+@media(max-width:600px){#backstage{width:calc(100vw - 2px)!important;grid-template-columns:42% 58%!important}#backstage .backnav{width:100%!important}#backstage .backmain{width:100%!important}}
+</style>
+<style id="o7-user-requested-alignment-fix">
+/* Only the two requested Office-menu alignment corrections. */
+#backstage .backmain{position:relative!important}
+#backstage .backmain img{
+  position:absolute!important;
+  top:46px!important;
+  left:50%!important;
+  right:auto!important;
+  float:none!important;
+  transform:translateX(-50%)!important;
+  margin:0!important;
+  width:112px!important;
+  height:112px!important;
+  max-width:112px!important;
+  max-height:112px!important;
+  object-fit:contain!important;
+}
+/* Reserve the logo area so the existing text never overlaps the centered mark. */
+#backstage .backmain h2{margin-top:148px!important}
+/* Office 2007 places Close as the final full-width command immediately above the footer, not as a small footer button. */
+#backstage .backnav #backClose{
+  position:relative!important;
+  left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+  flex:0 0 50px!important;
+  width:100%!important;
+  height:50px!important;
+  min-height:50px!important;
+  max-height:50px!important;
+  margin-top:auto!important;
+  padding:5px 13px 5px 49px!important;
+  border:1px solid transparent!important;
+  border-top:1px solid #c5c5c5!important;
+  background:transparent!important;
+  text-align:left!important;
+}
+#backstage .backnav #backClose:hover{
+  border-color:#dfa027!important;
+  background:linear-gradient(#fffef1,#fff2be 45%,#ffd46b 51%,#ffc249 55%,#ffe9a4)!important;
+}
+#backstage .backnav #backClose .o7-menu-icon{
+  left:10px!important;top:10px!important;width:28px!important;height:28px!important;
+}
+</style>
+<style id="o7-close-footer-correction">
+/* Keep the white command rail uninterrupted; place Close in the continuous blue footer. */
+#backstage{position:fixed!important;overflow:hidden!important}
+#backstage .backnav{
+  position:relative!important;
+  height:100%!important;
+  padding-bottom:10px!important;
+  border-bottom:0!important;
+  background:#fff!important;
+}
+/* Remove Close from the white command flow without altering its existing click handler. */
+#backstage .backnav #backClose{
+  position:fixed!important;
+  z-index:1210!important;
+  left:calc(1px + 532px - 151px)!important;
+  top:calc(34px + 503px + 5px)!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:143px!important;
+  height:25px!important;
+  min-height:25px!important;
+  max-height:25px!important;
+  margin:0!important;
+  padding:3px 9px 3px 31px!important;
+  border:1px solid #7896ad!important;
+  border-radius:1px!important;
+  background:linear-gradient(180deg,#fff 0%,#f4f8fb 43%,#d6e5ef 49%,#bdd4e4 54%,#eaf3f8 100%)!important;
+  color:#173f64!important;
+  text-align:left!important;
+  font:11px Tahoma,"Meiryo UI",sans-serif!important;
+  box-shadow:inset 0 1px #fff!important;
+}
+#backstage .backnav #backClose:hover{
+  border-color:#dc9820!important;
+  background:linear-gradient(180deg,#fffef3,#fff1bc 45%,#ffd36a 51%,#ffc249 55%,#ffebaa)!important;
+}
+#backstage .backnav #backClose .o7-menu-icon{
+  position:absolute!important;
+  left:7px!important;top:4px!important;
+  width:16px!important;height:16px!important;
+}
+/* One unbroken footer spanning both panes. */
+#backstage:before{
+  content:""!important;
+  position:absolute!important;
+  z-index:1205!important;
+  left:0!important;right:0!important;bottom:0!important;
+  width:100%!important;height:35px!important;
+  border-top:1px solid #7f9fb7!important;
+  background:linear-gradient(180deg,#f8fcff 0%,#e3eff7 42%,#bed7e7 50%,#d8e9f3 68%,#eef7fb 100%)!important;
+  box-shadow:inset 0 1px #fff!important;
+  pointer-events:none!important;
+}
+/* Ensure no old pseudo-footer overlays or divides the new footer. */
+#backstage:after{content:none!important;display:none!important}
+</style>
+<style id="o7-flat-full-ribbon">
+/* Office 2007 Blue: restrained surface, no artificial glass sheen. */
+:root{
+ --o7-tab-top:#dceafb;--o7-tab-mid:#c9def2;--o7-tab-bottom:#b7d1e8;
+ --o7-ribbon-top:#ffffff;--o7-ribbon-mid:#f3f7fa;--o7-ribbon-low:#d9e7f1;--o7-ribbon-bottom:#c7dce9;
+ --o7-separator:#9fb5c6;--o7-border:#7897ae;--o7-text:#244b68;
+}
+/* Remove reflection overlays that do not appear in the supplied Office 2007 ribbon capture. */
+#app .titlebar:before,#app .titlebar:after{content:none!important;display:none!important}
+#app #tabs{
+ background:linear-gradient(180deg,var(--o7-tab-top) 0%,var(--o7-tab-mid) 58%,var(--o7-tab-bottom) 100%)!important;
+ border-bottom:1px solid #7b99b0!important;box-shadow:none!important;
+}
+#app .tab{background:transparent!important;box-shadow:none!important;text-shadow:none!important;color:#174a72!important}
+#app .tab:hover:not(.active){background:#eaf2f8!important;border-color:#91aabd!important}
+#app .tab.active,#app .tab.editor-tab.active{
+ background:linear-gradient(180deg,#ffffff 0%,#f8fafc 55%,#edf3f7 100%)!important;
+ border-color:#819db3!important;border-bottom-color:#f3f7fa!important;box-shadow:none!important;
+}
+/* Context tabs remain distinct, but flat and period-correct rather than glossy. */
+#app .tab.editor-tab:not(.active),body.editor-mode #app .tab.editor-tab:not(.active){
+ background:#2d709e!important;border-left-color:#4e89b1!important;border-right-color:#1e5d89!important;
+ box-shadow:none!important;color:#fff!important;text-shadow:none!important;
+}
+#app .tab.editor-tab:hover:not(.active){background:#3b7da8!important}
+/* Main ribbon uses only a gentle vertical tone change and one lower boundary. */
+#app .ribbon,body.editor-mode #app .ribbon{
+ height:106px!important;min-height:106px!important;max-height:106px!important;
+ padding:0 3px!important;
+ background:linear-gradient(180deg,
+   var(--o7-ribbon-top) 0%,var(--o7-ribbon-top) 34%,
+   var(--o7-ribbon-mid) 52%,var(--o7-ribbon-low) 82%,var(--o7-ribbon-bottom) 100%)!important;
+ border:0!important;border-bottom:1px solid var(--o7-border)!important;
+ box-shadow:none!important;overflow-x:auto!important;overflow-y:hidden!important;
+ scrollbar-width:thin!important;
+}
+#app .rpage,#app .rpage.editor-page,body.editor-mode #app .rpage,body.editor-mode #app .rpage.editor-page{
+ height:104px!important;min-height:104px!important;max-height:104px!important;
+ min-width:max-content!important;width:max-content!important;
+ background:transparent!important;box-shadow:none!important;overflow:visible!important;
+}
+#app .group,#app .rpage.editor-page .group{
+ height:103px!important;min-height:103px!important;max-height:103px!important;
+ padding:3px 5px 0!important;background:transparent!important;
+ border:0!important;border-right:1px solid var(--o7-separator)!important;
+ box-shadow:none!important;overflow:visible!important;flex:0 0 auto!important;
+}
+#app .group:first-child{border-left:0!important}
+#app .grow,#app .rpage .grow{
+ height:82px!important;min-height:82px!important;max-height:82px!important;
+ overflow:visible!important;align-items:flex-start!important;gap:3px!important;
+}
+#app .col,#app .rpage .col{
+ height:78px!important;min-height:78px!important;max-height:78px!important;
+ display:grid!important;grid-template-rows:24px 24px 24px!important;
+ grid-auto-rows:24px!important;grid-auto-flow:column!important;grid-auto-columns:max-content!important;
+ overflow:visible!important;gap:1px!important;
+}
+#app .gtitle{
+ height:18px!important;min-height:18px!important;max-height:18px!important;line-height:17px!important;
+ background:transparent!important;color:#557187!important;text-shadow:none!important;box-shadow:none!important;
+}
+#app .gtitle:after{content:none!important;display:none!important}
+#app .rbtn{
+ height:24px!important;min-height:24px!important;max-height:24px!important;
+ background:transparent!important;color:var(--o7-text)!important;text-shadow:none!important;
+ box-shadow:none!important;filter:none!important;
+}
+#app .rbtn.large{height:78px!important;min-height:78px!important;max-height:78px!important}
+#app .rbtn .ico,#app .rbtn .o7-icon{filter:none!important}
+/* Office 2007 interaction colour is retained only on hover/press. */
+#app .rbtn:hover,#app .rule-btn:hover{
+ border-color:#dda02b!important;
+ background:linear-gradient(180deg,#fffdf0 0%,#fff4c4 48%,#ffd36b 52%,#ffe9a3 100%)!important;
+ box-shadow:none!important;
+}
+#app .rbtn:active,#app .rbtn[aria-pressed="true"],#app .rule-btn:active{
+ border-color:#b97412!important;background:#f3bd55!important;box-shadow:inset 0 1px 2px rgba(130,74,5,.32)!important;
+}
+/* Phrase-structure Rules uses the exact same group, content and title geometry as every other ribbon page. */
+#app #r-treerules{background:transparent!important;overflow:visible!important}
+#app #r-treerules #treeRuleRibbon{
+ display:flex!important;height:104px!important;min-height:104px!important;max-height:104px!important;
+ align-items:stretch!important;background:transparent!important;overflow:visible!important;
+}
+#app #r-treerules .rulegroup{
+ height:103px!important;min-height:103px!important;max-height:103px!important;
+ display:flex!important;flex-direction:column!important;flex:0 0 auto!important;
+ padding:3px 5px 0!important;border:0!important;border-right:1px solid var(--o7-separator)!important;
+ background:transparent!important;box-shadow:none!important;overflow:visible!important;
+}
+#app #r-treerules .rulebuttons{
+ height:82px!important;min-height:82px!important;max-height:82px!important;
+ display:grid!important;grid-template-rows:24px 24px 24px!important;
+ grid-auto-flow:column!important;grid-auto-columns:max-content!important;
+ align-content:start!important;gap:1px!important;overflow:visible!important;
+}
+#app #r-treerules .rule-btn{
+ height:24px!important;min-height:24px!important;max-height:24px!important;
+ padding:2px 5px!important;border:1px solid transparent!important;border-radius:2px!important;
+ background:transparent!important;color:var(--o7-text)!important;text-shadow:none!important;box-shadow:none!important;
+ font:11px "Cambria Math","Yu Mincho",serif!important;white-space:nowrap!important;
+}
+#app #r-treerules .gtitle{
+ height:18px!important;min-height:18px!important;max-height:18px!important;line-height:17px!important;
+ color:#557187!important;background:transparent!important;text-shadow:none!important;
+}
+/* Make every initial-edition ribbon command reachable instead of clipped. */
+#app .rpage.active{display:flex!important}
+#app .rpage:not(.active){display:none!important}
+</style>
+<style id="o7-compact-smooth">
+/* Dimensions restored to the initial edition. Ribbon colours intentionally unchanged. */
+#app .ribbon,body.editor-mode #app .ribbon{
+  height:91px!important;min-height:91px!important;max-height:91px!important;
+  padding:2px 3px 0!important;
+}
+#app .rpage,#app .rpage.editor-page,body.editor-mode #app .rpage,body.editor-mode #app .rpage.editor-page{
+  height:87px!important;min-height:87px!important;max-height:87px!important;
+}
+#app .group,#app .rpage.editor-page .group,
+#app #r-treerules .rulegroup{
+  height:87px!important;min-height:87px!important;max-height:87px!important;
+  padding:0 4px!important;
+}
+#app .grow,#app .rpage .grow,#app #r-treerules .rulebuttons{
+  height:69px!important;min-height:69px!important;max-height:69px!important;
+  gap:1px!important;
+}
+#app .col,#app .rpage .col,#app #r-treerules .rulebuttons{
+  height:69px!important;min-height:69px!important;max-height:69px!important;
+  grid-template-rows:22px 22px 22px!important;grid-auto-rows:22px!important;
+}
+#app .gtitle,#app #r-treerules .gtitle{
+  height:15px!important;min-height:15px!important;max-height:15px!important;line-height:14px!important;
+}
+#app .rbtn,#app #r-treerules .rule-btn{
+  height:22px!important;min-height:22px!important;max-height:22px!important;padding:1px 5px!important;
+}
+#app .rbtn.large{
+  height:65px!important;min-height:65px!important;max-height:65px!important;padding:3px 5px!important;
+}
+#app #r-treerules #treeRuleRibbon{
+  height:87px!important;min-height:87px!important;max-height:87px!important;
+}
+/* Initial-edition spacing and full-width editor area. */
+#app .workspace{
+  width:auto!important;max-width:none!important;min-width:0!important;
+  height:calc(100vh - 178px)!important;
+  margin:4px 7px 2px!important;
+  grid-template-columns:390px minmax(0,1fr)!important;
+}
+#app .workspace:before{top:151px!important}
+#app .tree-editor{height:calc(100vh - 225px)!important}
+/* Smooth gradients outside the ribbon. Hue and overall palette remain unchanged. */
+#app .titlebar{
+  background:linear-gradient(180deg,
+    #bceafa 0%,#a6def1 7%,#7bc8e5 15%,#51afd5 25%,#2e98c8 36%,
+    #167fb6 47%,#0b6ca4 53%,#156fa7 61%,#2b88bb 72%,#55acd1 84%,#83c9e4 93%,#a9dff0 100%)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.92),inset 0 -1px rgba(255,255,255,.46)!important;
+}
+#app .office-button{
+  background:
+    radial-gradient(circle at 31% 22%,rgba(255,255,255,.98) 0 7%,rgba(255,255,255,.66) 12%,rgba(255,255,255,.22) 26%,transparent 38%),
+    linear-gradient(180deg,#fbfeff 0%,#f2f9fc 18%,#e2f0f7 34%,#c8deea 46%,#a4c4d8 53%,#b8d2e2 62%,#d5e8f1 76%,#edf7fb 91%,#f8fcfe 100%)!important;
+}
+#app .qat{
+  background:linear-gradient(180deg,#fff 0%,#fbfdfe 22%,#f3f8fb 39%,#e4eff5 48%,#d2e4ee 55%,#dceaf2 67%,#edf5f9 84%,#f8fbfd 100%)!important;
+}
+#app .panehead,#app .resulttabs,#app .tree-toolbar{
+  background:linear-gradient(180deg,#fff 0%,#f9fcfd 18%,#eff6fa 36%,#e1edf4 48%,#cfe2ed 58%,#d8e8f1 70%,#e9f3f8 86%,#f4f9fb 100%)!important;
+}
+#app .statusbar{
+  background:linear-gradient(180deg,#f8fcff 0%,#f1f8fc 23%,#e2eef6 40%,#ccdfeb 49%,#b5d2e4 56%,#c8deeb 68%,#deedf5 84%,#edf7fb 100%)!important;
+}
+#backstage:before{
+  background:linear-gradient(180deg,#f9fcff 0%,#f3f9fc 18%,#e8f2f8 35%,#d7e7f1 47%,#bfd7e7 55%,#cae0ed 67%,#dcebf4 82%,#edf6fa 100%)!important;
+}
+#backstage .backnav #backClose,
+#app .linecontrols button,#app .inline-analyze{
+  background:linear-gradient(180deg,#fff 0%,#fafcfd 22%,#f2f7fa 39%,#e2edf4 48%,#ccdfeb 55%,#d8e8f1 69%,#edf5f9 86%,#f8fbfd 100%)!important;
+}
+@media(max-width:1100px){#app .workspace{width:auto!important;margin:4px 7px 2px!important;grid-template-columns:350px minmax(0,1fr)!important}}
+</style>
+<style id="o7-windows7-depth">
+/* Windows 7-era control depth outside the ribbon. Ribbon colours and compact dimensions stay unchanged. */
+:root{
+ --aero-bd:#7896ad;--aero-inner:#ffffff;--aero-text:#173f63;
+ --aero-hot:#d89b22;--aero-press:#b97613;
+}
+/* Shared raised control face: bright cap, crisp midpoint, cool lower body. */
+#app .inline-analyze,
+#app .linecontrols button,
+#app .tree-toolbar button,
+#app .tree-canvas-status button,
+#wizard button,#modal button,
+#backstage .backnav #backClose{
+ position:relative!important;
+ border:1px solid var(--aero-bd)!important;
+ border-radius:2px!important;
+ color:var(--aero-text)!important;
+ background:linear-gradient(180deg,
+   #ffffff 0%,#ffffff 12%,
+   #f7fbfd 34%,
+   #e9f3f8 47%,
+   #c9deea 49%,
+   #b7d1e2 55%,
+   #cfe2ed 69%,
+   #e7f2f7 88%,
+   #f4f9fb 100%)!important;
+ box-shadow:
+   inset 0 1px 0 rgba(255,255,255,1),
+   inset 1px 0 0 rgba(255,255,255,.72),
+   inset -1px 0 0 rgba(255,255,255,.55),
+   0 1px 1px rgba(40,71,92,.16)!important;
+ text-shadow:0 1px 0 #fff!important;
+}
+#app .inline-analyze:before,
+#app .linecontrols button:before,
+#wizard button:before,#modal button:before,
+#backstage .backnav #backClose:before{
+ content:""!important;position:absolute!important;left:2px!important;right:2px!important;top:2px!important;height:38%!important;
+ border-radius:1px!important;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.08))!important;
+ pointer-events:none!important;
+}
+/* Warm Vista/7 hover, with the same raised shape rather than a flat yellow fill. */
+#app .inline-analyze:hover,
+#app .linecontrols button:hover,
+#app .tree-toolbar button:hover,
+#app .tree-canvas-status button:hover,
+#wizard button:hover,#modal button:hover,
+#backstage .backnav #backClose:hover{
+ border-color:var(--aero-hot)!important;
+ background:linear-gradient(180deg,
+   #fffef2 0%,#fffcec 19%,
+   #fff3c7 40%,
+   #ffe69a 47%,
+   #ffc958 51%,
+   #ffd56e 59%,
+   #ffe9a7 76%,
+   #fff5d0 100%)!important;
+ box-shadow:inset 0 1px #fff,inset 1px 0 #fff8d9,inset -1px 0 #fff3c4,0 1px 2px rgba(123,76,7,.22)!important;
+}
+#app .inline-analyze:active,
+#app .linecontrols button:active,
+#app .tree-toolbar button:active,
+#app .tree-canvas-status button:active,
+#wizard button:active,#modal button:active,
+#backstage .backnav #backClose:active{
+ border-color:var(--aero-press)!important;
+ background:linear-gradient(180deg,#d98d1e 0%,#eda63a 23%,#ffd271 47%,#efae3d 54%,#dc8b19 100%)!important;
+ box-shadow:inset 0 2px 4px rgba(108,57,3,.42),inset 0 -1px rgba(255,231,159,.75)!important;
+ transform:translateY(1px)!important;
+}
+/* Selects/text inputs keep a recessed Aero frame. */
+#app textarea,#app input:not([type="range"]),#app select{
+ border:1px solid #6f8fa7!important;border-radius:0!important;background:#fff!important;
+ box-shadow:inset 1px 1px 2px rgba(112,135,151,.38),inset -1px -1px 0 rgba(255,255,255,.85)!important;
+}
+#app select{
+ background:linear-gradient(180deg,#fff 0%,#fff 64%,#edf4f8 100%)!important;
+}
+/* Aero panel headers: dimensional, but without changing their hue family. */
+#app .panehead,#app .resulttabs,#app .tree-toolbar{
+ background:linear-gradient(180deg,
+   #ffffff 0%,#ffffff 10%,
+   #f6fafc 32%,
+   #e6f0f6 44%,
+   #c8dce8 49%,
+   #b8d2e2 54%,
+   #d4e5ef 68%,
+   #eaf4f8 86%,
+   #f5fafc 100%)!important;
+ border-bottom-color:#7898ae!important;
+ box-shadow:inset 0 1px #fff,inset 0 -1px rgba(255,255,255,.65)!important;
+}
+/* Status bar has the characteristic pale raised center seam. */
+#app .statusbar{
+ background:linear-gradient(180deg,
+   #fafdff 0%,#f5faff 18%,
+   #e7f2f8 38%,
+   #ccdfeb 47%,
+   #a9cce1 51%,
+   #bfd9e8 61%,
+   #d8e9f2 78%,
+   #edf7fb 100%)!important;
+ border-top:1px solid #527d9e!important;
+ box-shadow:inset 0 1px #fff,inset 0 -1px rgba(255,255,255,.7)!important;
+}
+/* QAT and orb adopt a matching Aero lens. */
+#app .qat{
+ background:linear-gradient(180deg,
+   #ffffff 0%,#ffffff 12%,
+   #f3f8fb 35%,
+   #deebf3 46%,
+   #bed6e5 51%,
+   #cee1ec 61%,
+   #e6f1f7 81%,
+   #f6fafc 100%)!important;
+ box-shadow:inset 0 1px #fff,inset 1px 0 rgba(255,255,255,.7),inset -1px 0 rgba(255,255,255,.52),0 1px 1px rgba(31,68,93,.21)!important;
+}
+#app .office-button{
+ background:
+  radial-gradient(circle at 31% 22%,rgba(255,255,255,.98) 0 7%,rgba(255,255,255,.69) 13%,rgba(255,255,255,.20) 29%,transparent 39%),
+  linear-gradient(180deg,#fbfeff 0%,#f3f9fc 18%,#e2f0f7 35%,#c8deea 46%,#9fbed3 51%,#b7d1e1 61%,#d4e7f0 77%,#edf7fb 92%,#f9fdff 100%)!important;
+ box-shadow:0 0 0 1px #fff,0 0 0 2px #7ca3be,0 2px 4px rgba(34,69,93,.48),inset 0 2px 3px #fff,inset 0 -2px 3px rgba(60,101,128,.25)!important;
+}
+/* Continuous menu footer with a softer Aero curvature. */
+#backstage:before{
+ background:linear-gradient(180deg,
+   #fafdff 0%,#f5faff 17%,#e9f3f8 35%,#d6e6f0 46%,#b9d3e4 51%,#c8deeb 62%,#ddebf4 80%,#eef7fb 100%)!important;
+ box-shadow:inset 0 1px #fff,inset 0 -1px rgba(255,255,255,.68)!important;
+}
+</style>
+<style id="o7-close-and-single-row-fix">
+/* Existing Close button is moved to #backstage by script, then anchored inside the blue footer. */
+#backstage{position:fixed!important}
+#backstage > #backClose{
+  position:absolute!important;
+  z-index:1220!important;
+  right:8px!important;
+  bottom:5px!important;
+  left:auto!important;
+  top:auto!important;
+  width:143px!important;
+  height:25px!important;
+  min-width:143px!important;
+  min-height:25px!important;
+  max-width:143px!important;
+  max-height:25px!important;
+  margin:0!important;
+  padding:3px 8px 3px 30px!important;
+  border:1px solid #7896ad!important;
+  border-radius:2px!important;
+  color:#173f63!important;
+  text-align:left!important;
+  font:11px Tahoma,"Meiryo UI",sans-serif!important;
+  text-shadow:0 1px #fff!important;
+  background:linear-gradient(180deg,#fff 0%,#fff 10%,#f5f9fb 35%,#e4eef4 47%,#c2d8e6 51%,#d2e3ed 66%,#eaf3f8 86%,#f7fbfd 100%)!important;
+  box-shadow:inset 0 1px #fff,inset 1px 0 rgba(255,255,255,.7),inset -1px 0 rgba(255,255,255,.5),0 1px 1px rgba(36,70,93,.18)!important;
+}
+#backstage > #backClose:hover{
+  border-color:#d99a21!important;
+  background:linear-gradient(180deg,#fffef2 0%,#fffbea 20%,#fff1bf 42%,#ffe295 48%,#ffc956 53%,#ffd872 62%,#ffebad 81%,#fff7d8 100%)!important;
+}
+#backstage > #backClose:active{
+  border-color:#b87512!important;
+  background:linear-gradient(180deg,#d98d1e,#eda63a 24%,#ffd271 48%,#efa93a 55%,#dc8b19)!important;
+  box-shadow:inset 0 2px 4px rgba(108,57,3,.4)!important;
+  transform:translateY(1px)!important;
+}
+#backstage > #backClose .o7-menu-icon{
+  position:absolute!important;
+  left:7px!important;
+  top:4px!important;
+  width:16px!important;
+  height:16px!important;
+}
+/* A one-command small-button column occupies the middle row of the three-row ribbon stack. */
+#app .ribbon .col:has(> button:only-child){align-content:start!important}
+#app .ribbon .col > button:only-child{grid-row:2!important}
+</style>
+<style id="o7-large-center-close-compact">
+/* Large ribbon commands are vertically centered in the command area. */
+#app .ribbon .rbtn.large{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  align-self:stretch!important;
+  height:65px!important;
+  min-height:65px!important;
+  max-height:65px!important;
+  padding:3px 5px!important;
+  text-align:center!important;
+}
+#app .ribbon .rbtn.large .ico,
+#app .ribbon .rbtn.large .o7-icon{
+  margin:0 auto 2px!important;
+  flex:0 0 auto!important;
+}
+/* A single small command remains in row 1, as in the original layout. */
+#app .ribbon .col > button:only-child{
+  grid-row:1!important;
+}
+/* Compact Office 2007-style Close button in the right side of the blue footer. */
+#backstage > #backClose{
+  right:8px!important;
+  bottom:5px!important;
+  width:96px!important;
+  min-width:96px!important;
+  max-width:96px!important;
+  height:25px!important;
+  min-height:25px!important;
+  max-height:25px!important;
+  padding:3px 7px 3px 28px!important;
+  white-space:nowrap!important;
+}
+#backstage > #backClose .o7-menu-icon{
+  left:6px!important;
+  top:4px!important;
+  width:16px!important;
+  height:16px!important;
+}
+</style>
+<style id="o7-windows7-authentic">
+/* Authentic Windows 7 control treatment: restrained gray face, thin blue-gray border, subtle inner highlight. */
+:root{--w7-border:#707070;--w7-border-soft:#8e9ca6;--w7-text:#1e1e1e;--w7-focus:#3c7fb1}
+#app .inline-analyze,
+#app .linecontrols button,
+#app .tree-toolbar button,
+#app .tree-canvas-status button,
+#wizard button,#modal button,
+#backstage > #backClose{
+  position:relative!important;
+  border:1px solid var(--w7-border)!important;
+  border-radius:3px!important;
+  color:var(--w7-text)!important;
+  background:linear-gradient(180deg,
+    #ffffff 0%,
+    #fbfbfb 12%,
+    #f4f4f4 42%,
+    #e8e8e8 52%,
+    #dedede 77%,
+    #e8e8e8 100%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 1px 0 0 rgba(255,255,255,.45),
+    inset -1px 0 0 rgba(255,255,255,.30),
+    0 1px 1px rgba(0,0,0,.12)!important;
+  text-shadow:0 1px 0 #fff!important;
+  transform:none!important;
+}
+/* Remove the artificial large glossy overlays from the previous pass. */
+#app .inline-analyze:before,
+#app .linecontrols button:before,
+#wizard button:before,#modal button:before,
+#backstage > #backClose:before{content:none!important;display:none!important}
+#app .inline-analyze:hover,
+#app .linecontrols button:hover,
+#app .tree-toolbar button:hover,
+#app .tree-canvas-status button:hover,
+#wizard button:hover,#modal button:hover,
+#backstage > #backClose:hover{
+  border-color:#3c7fb1!important;
+  background:linear-gradient(180deg,
+    #f7fcff 0%,
+    #eaf6fd 20%,
+    #d7edf9 48%,
+    #c4e2f3 53%,
+    #d5ebf7 76%,
+    #edf8fd 100%)!important;
+  box-shadow:inset 0 1px #fff,inset 0 0 0 1px rgba(126,197,235,.42),0 1px 1px rgba(0,0,0,.13)!important;
+}
+#app .inline-analyze:active,
+#app .linecontrols button:active,
+#app .tree-toolbar button:active,
+#app .tree-canvas-status button:active,
+#wizard button:active,#modal button:active,
+#backstage > #backClose:active{
+  border-color:#2c628b!important;
+  background:linear-gradient(180deg,#c9e4f3 0%,#b6d8eb 45%,#a6cee4 53%,#c8e4f2 100%)!important;
+  box-shadow:inset 0 2px 3px rgba(36,75,101,.32),inset 0 -1px rgba(255,255,255,.62)!important;
+  transform:none!important;
+}
+/* Keyboard/default emphasis similar to the blue outlined primary button in Windows 7 dialogs. */
+#app .inline-analyze:focus-visible,
+#app .linecontrols button:focus-visible,
+#wizard button:focus-visible,#modal button:focus-visible,
+#backstage > #backClose:focus-visible{
+  outline:1px dotted #000!important;
+  outline-offset:-4px!important;
+  border-color:var(--w7-focus)!important;
+  box-shadow:inset 0 1px #fff,inset 0 0 0 1px #9ad7f4,0 0 0 1px rgba(64,150,199,.32)!important;
+}
+/* Restore the centered document/editor width used before the full-width expansion. */
+#app .workspace{
+  width:78%!important;
+  max-width:1500px!important;
+  min-width:760px!important;
+  height:calc(100vh - 178px)!important;
+  margin:4px auto 2px!important;
+  grid-template-columns:370px minmax(0,1fr)!important;
+}
+/* Strict viewport-centered title, independent of the orb/QAT widths. */
+#app .titlebar{position:relative!important;padding:0!important;overflow:hidden!important}
+#app .titletext{
+  position:absolute!important;
+  z-index:4!important;
+  left:50%!important;
+  top:0!important;
+  width:max-content!important;
+  max-width:50%!important;
+  height:100%!important;
+  line-height:25px!important;
+  padding:0!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+/* Windows 7 copy-dialog header: deep blue at left, teal at right, restrained luminous top edge. */
+#app .titlebar{
+  background:linear-gradient(90deg,
+    #0d4f7a 0%,
+    #125f82 20%,
+    #146f87 42%,
+    #147c83 63%,
+    #117f78 82%,
+    #0c766f 100%)!important;
+  border-top:1px solid #9bd3dd!important;
+  border-bottom:1px solid #0a4f68!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    inset 0 -1px 0 rgba(0,47,62,.42)!important;
+}
+#app .titlebar:before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;right:0!important;top:0!important;
+  height:42%!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,0))!important;
+  pointer-events:none!important;
+}
+#app .titlebar:after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  right:48px!important;
+  top:2px!important;
+  width:112px!important;
+  height:26px!important;
+  opacity:.18!important;
+  background:
+    linear-gradient(90deg,transparent 0 13%,rgba(255,255,255,.18) 13% 15%,transparent 15% 56%,rgba(255,255,255,.24) 56% 58%,transparent 58%),
+    linear-gradient(135deg,transparent 0 64%,rgba(255,255,255,.16) 65% 76%,transparent 77%)!important;
+  pointer-events:none!important;
+}
+#app .titletext{color:#fff!important;text-shadow:0 1px 1px rgba(0,39,57,.85)!important}
+@media(max-width:1100px){#app .workspace{width:96%!important;min-width:680px!important;grid-template-columns:350px minmax(0,1fr)!important}}
+</style>
+<style id="o7-windows7-wizard-only">
+/* Windows 7-era wizard. No selectors outside #wizard and the main status bar are changed. */
+#wizard.shade{
+  background:rgba(35,52,65,.36)!important;
+  backdrop-filter:none!important;
+}
+#wizard .wizard{
+  position:relative!important;
+  width:min(590px,calc(100vw - 24px))!important;
+  height:min(370px,calc(100vh - 24px))!important;
+  min-height:340px!important;
+  display:grid!important;
+  grid-template-columns:160px minmax(0,1fr)!important;
+  grid-template-rows:29px minmax(0,1fr) 44px!important;
+  overflow:hidden!important;
+  border:1px solid #5d7588!important;
+  border-radius:7px 7px 2px 2px!important;
+  background:#f0f0f0!important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.78),
+    0 10px 30px rgba(0,0,0,.48)!important;
+  font:12px "Segoe UI","Meiryo UI",Meiryo,sans-serif!important;
+}
+/* Compact Aero title strip. */
+#wizard .wizhead{
+  position:relative!important;
+  z-index:4!important;
+  grid-column:1 / 3!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:29px!important;
+  min-height:29px!important;
+  padding:5px 34px 4px 10px!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-bottom:1px solid #8fa9bc!important;
+  background:linear-gradient(180deg,
+    #f7fbfe 0%,#edf5fa 22%,#dceaf3 47%,#c3d9e7 52%,#d7e7f0 72%,#edf6fa 100%)!important;
+  box-shadow:inset 0 1px #fff!important;
+  color:#1c1c1c!important;
+}
+#wizard .wizhead h1{
+  margin:0!important;
+  padding:0!important;
+  font:12px/19px "Segoe UI","Meiryo UI",Meiryo,sans-serif!important;
+  color:#1e1e1e!important;
+  text-shadow:0 1px #fff!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+#wizard .wizhead > div{display:none!important}
+/* Left illustration panel, inspired by Windows 7 setup/reset wizards. */
+#wizard .wizard:before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  left:0!important;
+  top:29px!important;
+  bottom:44px!important;
+  width:160px!important;
+  border-right:1px solid #708f9d!important;
+  background:
+    radial-gradient(ellipse at 6% 36%,rgba(128,210,217,.28) 0 18%,transparent 49%),
+    linear-gradient(166deg,transparent 0 26%,rgba(255,255,255,.08) 26.3% 32%,transparent 32.3%),
+    linear-gradient(180deg,#0e525c 0%,#075364 28%,#026272 55%,#006776 76%,#005b69 100%)!important;
+  box-shadow:inset -1px 0 rgba(255,255,255,.18)!important;
+}
+#wizard .wizard:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  left:-55px!important;
+  top:105px!important;
+  width:245px!important;
+  height:170px!important;
+  border-radius:50%!important;
+  transform:rotate(-10deg)!important;
+  background:linear-gradient(165deg,rgba(63,153,164,.24),rgba(0,55,67,.08) 58%,transparent 59%)!important;
+  pointer-events:none!important;
+}
+/* Reuse the original Umiri logo, but place it in the illustration panel. */
+#wizard .wizbrand{
+  position:absolute!important;
+  z-index:5!important;
+  left:38px!important;
+  top:94px!important;
+  right:auto!important;
+  width:84px!important;
+  height:84px!important;
+  max-width:84px!important;
+  max-height:84px!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 1px 1px rgba(0,32,40,.46))!important;
+}
+/* Main white content area. */
+#wizard .wizbody{
+  position:relative!important;
+  z-index:2!important;
+  grid-column:2!important;
+  grid-row:2!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:17px 26px 16px 38px!important;
+  overflow:auto!important;
+  border:0!important;
+  background:#fff!important;
+  color:#1d1d1d!important;
+  line-height:1.45!important;
+}
+#wizard .wizbody > img{display:none!important}
+#wizard .wizbody h2{
+  margin:0 0 31px!important;
+  color:#1d1d1d!important;
+  font:600 16px/1.3 "Segoe UI","Meiryo UI",Meiryo,sans-serif!important;
+}
+#wizard .wizbody h3{font-size:13px!important}
+#wizard .wizbody p{margin:9px 0!important}
+#wizard .wizard-update{
+  margin:0 0 12px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+#wizard .wizard-update h3{margin:0 0 9px!important;color:#1e1e1e!important}
+#wizard .wizard-update ul{margin:7px 0 0 20px!important;padding:0!important}
+#wizard .terms{height:208px!important;border-color:#8a9aa6!important}
+/* Neutral Windows 7 command footer. */
+#wizard .wizbuttons{
+  position:relative!important;
+  z-index:3!important;
+  grid-column:1 / 3!important;
+  grid-row:3!important;
+  height:44px!important;
+  min-height:44px!important;
+  padding:8px 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:9px!important;
+  border:0!important;
+  border-top:1px solid #c6c6c6!important;
+  background:linear-gradient(180deg,#f5f5f5 0%,#eeeeee 48%,#e6e6e6 100%)!important;
+  box-shadow:inset 0 1px #fff!important;
+}
+#wizard .wizbuttons button{
+  min-width:88px!important;
+  height:25px!important;
+  min-height:25px!important;
+  padding:2px 13px!important;
+  border:1px solid #707070!important;
+  border-radius:3px!important;
+  color:#1e1e1e!important;
+  background:linear-gradient(180deg,#fff 0%,#f8f8f8 42%,#e7e7e7 53%,#dedede 78%,#e9e9e9 100%)!important;
+  box-shadow:inset 0 1px #fff,0 1px 1px rgba(0,0,0,.10)!important;
+  text-shadow:0 1px #fff!important;
+}
+#wizard .wizbuttons button:hover{
+  border-color:#3c7fb1!important;
+  background:linear-gradient(180deg,#f7fcff 0%,#eaf6fd 24%,#d3ebf8 50%,#c2e1f2 55%,#eaf7fc 100%)!important;
+  box-shadow:inset 0 0 0 1px rgba(126,197,235,.42),inset 0 1px #fff!important;
+}
+#wizard .wizbuttons button:active{
+  border-color:#2c628b!important;
+  background:linear-gradient(180deg,#c9e4f3,#b6d8eb 46%,#a6cee4 54%,#c8e4f2)!important;
+  box-shadow:inset 0 2px 3px rgba(36,75,101,.30)!important;
+}
+#wizard #wnext{
+  border-color:#2879a6!important;
+  box-shadow:inset 0 0 0 1px #9bd8f4,inset 0 1px #fff,0 0 0 1px rgba(51,143,191,.20)!important;
+}
+#wizard #wback[style*="hidden"]{opacity:.55!important}
+/* Word 2007-like item separators in the main bottom status bar only. */
+#app .statusbar > span{
+  position:relative!important;
+  height:20px!important;
+  padding:0 9px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+}
+#app .statusbar > span:first-child{padding-left:0!important}
+#app .statusbar > span + span{
+  border-left:1px solid #8daec5!important;
+  box-shadow:inset 1px 0 rgba(255,255,255,.62)!important;
+}
+#app .statusbar .status-msg{padding-right:9px!important}
+@media(max-width:640px){
+  #wizard .wizard{grid-template-columns:118px minmax(0,1fr)!important}
+  #wizard .wizard:before{width:118px!important}
+  #wizard .wizbrand{left:27px!important;width:64px!important;height:64px!important}
+  #wizard .wizbody{padding-left:22px!important;padding-right:18px!important}
+}
+</style>
+<style id="o7-wizard-logo-close-final">
+/* Restore Close inside the uninterrupted blue Office-menu footer. */
+#backstage > #backClose{
+  position:absolute!important;
+  z-index:1220!important;
+  right:8px!important;
+  bottom:5px!important;
+  left:auto!important;
+  top:auto!important;
+  width:96px!important;
+  min-width:96px!important;
+  max-width:96px!important;
+  height:25px!important;
+  min-height:25px!important;
+  max-height:25px!important;
+  margin:0!important;
+  padding:3px 7px 3px 28px!important;
+  transform:none!important;
+  white-space:nowrap!important;
+}
+#backstage > #backClose:active{transform:none!important}
+#backstage > #backClose .o7-menu-icon{
+  position:absolute!important;left:6px!important;top:4px!important;
+  width:16px!important;height:16px!important;
+}
+/* The logo is physically moved under .wizard, so its position is relative to the entire window, not the clipped title strip. */
+#wizard .wizard > .wizbrand{
+  position:absolute!important;
+  z-index:8!important;
+  display:block!important;
+  left:37px!important;
+  top:92px!important;
+  right:auto!important;
+  width:86px!important;
+  height:86px!important;
+  min-width:86px!important;
+  min-height:86px!important;
+  max-width:86px!important;
+  max-height:86px!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 1px 1px rgba(0,33,41,.52))!important;
+  pointer-events:none!important;
+}
+/* Japanese Windows 7 wizard typography, measured as separate UI roles. */
+#wizard .wizard{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:11px!important;
+  color:#1e1e1e!important;
+}
+#wizard .wizhead h1{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:11px!important;
+  font-weight:normal!important;
+  line-height:19px!important;
+  letter-spacing:0!important;
+}
+#wizard .wizbody{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:10px!important;
+  line-height:1.42!important;
+  padding:13px 22px 14px 39px!important;
+}
+#wizard .wizbody h2{
+  margin:0 0 30px!important;
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:15px!important;
+  font-weight:bold!important;
+  line-height:1.35!important;
+  letter-spacing:0!important;
+}
+#wizard .wizbody h3{
+  margin:0 0 7px!important;
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:11px!important;
+  font-weight:bold!important;
+  line-height:1.35!important;
+}
+#wizard .wizbody p,
+#wizard .wizbody li,
+#wizard .wizbody label,
+#wizard .wizbody .wizard-update{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:10px!important;
+  line-height:1.42!important;
+}
+#wizard .wizbody p{margin:7px 0!important}
+#wizard .wizbody input,
+#wizard .wizbody select,
+#wizard .wizbody textarea{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:10px!important;
+}
+#wizard .wizbuttons button{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:10px!important;
+  font-weight:normal!important;
+  line-height:18px!important;
+}
+#wizard .terms{
+  font-family:Meiryo,"Meiryo UI","Segoe UI",sans-serif!important;
+  font-size:10px!important;
+  line-height:1.45!important;
+}
+</style>
+</head>
 <body>
 <div id="umiriSplash" role="status" aria-live="polite" aria-label="Umiri 4.0 を起動しています">
   <section class="umiri-splash" aria-hidden="true">
@@ -342,40 +1406,55 @@ body.editor-mode #tabs{
 <script>
 (()=>{
   const splash=document.getElementById("umiriSplash");
-  if(!splash){
-    window.__umiriSplashFinished=true;
-    window.dispatchEvent(new CustomEvent("umiri:splash-finished"));
-    return;
-  }
-  const started=performance.now();
-  let finished=false;
-  const finish=()=>{
+  let running=false,finished=false;
+
+  const markFinished=()=>{
     if(finished)return;
     finished=true;
-    splash.remove();
+    splash?.remove();
     window.__umiriSplashFinished=true;
     window.dispatchEvent(new CustomEvent("umiri:splash-finished"));
   };
-  const closeSplash=()=>{
-    const elapsed=performance.now()-started;
-    window.setTimeout(()=>splash.classList.add("is-closing"),Math.max(0,4400-elapsed));
-    window.setTimeout(finish,Math.max(0,4700-elapsed));
+
+  window.__umiriStartSplash=()=>{
+    if(running||finished)return;
+    if(!splash){markFinished();return;}
+    running=true;
+    splash.classList.remove("hidden","is-closing");
+    splash.removeAttribute("hidden");
+    splash.setAttribute("aria-hidden","false");
+    const started=performance.now();
+    const close=()=>{
+      const elapsed=performance.now()-started;
+      window.setTimeout(()=>splash.classList.add("is-closing"),Math.max(0,4400-elapsed));
+      window.setTimeout(markFinished,Math.max(0,4700-elapsed));
+    };
+    if(document.readyState==="complete")close();
+    else window.addEventListener("load",close,{once:true});
+    window.setTimeout(()=>{
+      if(!finished&&splash.isConnected){
+        splash.classList.add("is-closing");
+        window.setTimeout(markFinished,300);
+      }
+    },5200);
   };
-  if(document.readyState==="complete")closeSplash();
-  else window.addEventListener("load",closeSplash,{once:true});
-  window.setTimeout(()=>{
-    if(!finished&&splash.isConnected){
-      splash.classList.add("is-closing");
-      window.setTimeout(finish,300);
-    }
-  },5200);
+
+  window.__umiriHoldSplash=()=>{
+    if(!splash||running||finished)return;
+    splash.classList.add("hidden");
+    splash.setAttribute("hidden","");
+    splash.setAttribute("aria-hidden","true");
+  };
+
+  /* Keep the splash hidden until setup state is known by the main application script. */
+  window.__umiriHoldSplash();
 })();
 </script>
 <script type="module" src="./src/app/app.js"></script>
 <script>
 (()=>{'use strict';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const KEY='umiri-4.0.setup';let clauses=[],active=0,busy=false,wstep=0;
+const KEY='umiri-4.0.setup';let clauses=[],active=0,busy=false,wstep=0,initialSetupFlow=false;
 let treeRoot=null,treeSelected=null,treeParents=new Map(),treeNodes=new Map(),treeUndoStack=[],treeRedoStack=[],treeTransform={k:1,x:40,y:38},treeClipboard=null,treeHeadLeft=true,treeMovementArrows=[],treeMovementOrigin=null,treeShowTerminals=true,treeShowArrows=true;
 const roleNames={main:'主節',embedded:'埋込み節',adjunct:'付加節',independent:'独立文'};
 const blankResult=()=>({score:'0',meter:'0%',frame:'',status:'未解析',counts:'',paths:'',diagnostics:'',statusNotice:'',morph:'',groups:'',brackets:''});
@@ -407,7 +1486,7 @@ const terms=`<div class="terms"><b>Umiri 4.0 利用規約</b><p>本ソフトウ�
 $('#showTerms').onclick=()=>dialog('利用規約',terms);$('#backTerms').onclick=()=>{closeBack();dialog('利用規約',terms)};const licenses=`<p><b>MeCab</b><br>配布物に含まれるライセンス文書が適用されます。</p><p><b>mecab-web-worker</b><br>MIT Licenseが適用されます。</p><p><b>UniDic</b><br>配布物に含まれる辞書ライセンスが適用されます。</p><p><a href="./THIRD_PARTY_NOTICES.txt" target="_blank" rel="noopener">第三者ライセンス全文</a></p>`;$('#showLicenses').onclick=()=>dialog('第三者ソフトウェアとライセンス',licenses);$('#backLicense').onclick=()=>{closeBack();dialog('第三者ソフトウェアとライセンス',licenses)};const developerUrl='https://sites.google.com/view/meisho75doushi/kenkyu/SSH',helpPageUrl='https://sites.google.com/view/meisho75doushi/kenkyu/SSH/umiri202610';$('#showDeveloper').onclick=()=>window.open(developerUrl,'_blank','noopener,noreferrer');$('#backDeveloper').onclick=()=>{closeBack();window.open(developerUrl,'_blank','noopener,noreferrer')};$('#showHelpPage').onclick=()=>window.open(helpPageUrl,'_blank','noopener,noreferrer');$('#backHelpPage').onclick=()=>{closeBack();window.open(helpPageUrl,'_blank','noopener,noreferrer')};
 function openBack(){$('#backstage').classList.remove('hidden')}function closeBack(){$('#backstage').classList.add('hidden')}$('#officeBtn').onclick=openBack;$('#backClose').onclick=closeBack;
 const pages=[`<h2>Umiri 4.0へようこそ</h2><img src="data:image/webp;base64,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" style="width:100px;float:right" alt="Umiri ロゴ"><div class="wizard-update"><h3>Umiri 4.0 アップデート</h3><ul><li>「構造」タブに統語樹表示を追加しました。</li><li>解析された統語樹をUmiri上で直接編集できます。</li><li>ラベル変更、末端文字、子ノード追加、枝削除、左右交換、元に戻す・やり直しに対応しました。</li><li>高画質PNGおよびUmiri Editorファイル[.tmrs]形式で保存できます。</li><li>英語（KyuRi）解析に対応しました。</li></ul></div><p class="powered-line">Powered by Nyamuchi Core</p><p><a href="https://sites.google.com/view/meisho75doushi/kenkyu/SSH" target="_blank" rel="noopener noreferrer">開発者ウェブサイト</a></p>`,terms+`<p><label><input id="agree" type="checkbox"> 利用規約に同意します</label></p><p id="werr" class="error"></p>`,`<h2>第三者ソフトウェア</h2>${licenses}`,`<h2>準備完了</h2><p>統語樹は「構造」タブで表示・編集できます。空白ドラッグで移動、Ctrl+ホイールで拡大縮小できます。</p><p>「秉至志以成巧技 遇賢主而賦霊魂」</p><p>至志を秉ちて以て巧技を成し 賢主に遇ひて霊魂を賦す。</p>`];
-function showWizard(){wstep=0;drawWizard();$('#wizard').classList.remove('hidden')}function drawWizard(){$('#wizbody').innerHTML=pages[wstep];$('#wback').style.visibility=wstep?'visible':'hidden';$('#wnext').textContent=wstep===pages.length-1?'利用を開始':'次へ'}$('#wback').onclick=()=>{wstep--;drawWizard()};$('#wnext').onclick=()=>{if(wstep===1&&!$('#agree')?.checked){$('#werr').textContent='同意が必要です。';return}if(wstep<pages.length-1){wstep++;drawWizard();return}localStorage.setItem(KEY,JSON.stringify({accepted:true,version:'3.0',completedAt:new Date().toISOString()}));$('#wizard').classList.add('hidden')};$('#showSetup').onclick=showWizard;$('#backSetup').onclick=()=>{closeBack();showWizard()};
+function showWizard(initial=false){initialSetupFlow=initial;wstep=0;drawWizard();$('#wizard').classList.remove('hidden')}function drawWizard(){$('#wizbody').innerHTML=pages[wstep];$('#wback').style.visibility=wstep?'visible':'hidden';$('#wnext').textContent=wstep===pages.length-1?'利用を開始':'次へ'}$('#wback').onclick=()=>{wstep--;drawWizard()};$('#wnext').onclick=()=>{if(wstep===1&&!$('#agree')?.checked){$('#werr').textContent='同意が必要です。';return}if(wstep<pages.length-1){wstep++;drawWizard();return}localStorage.setItem(KEY,JSON.stringify({accepted:true,version:'3.0',completedAt:new Date().toISOString()}));$('#wizard').classList.add('hidden');if(initialSetupFlow){initialSetupFlow=false;window.__umiriStartSplash?.()}};$('#showSetup').onclick=()=>showWizard(false);$('#backSetup').onclick=()=>{closeBack();showWizard(false)};
 function setupDone(){try{return JSON.parse(localStorage.getItem(KEY)||'null')?.accepted===true}catch{return false}}
 
 function cloneTree(value){return JSON.parse(JSON.stringify(value))}
@@ -470,11 +1549,54 @@ $('#multiInput').addEventListener('input',()=>{clearTimeout(window.__lineTimer);
 const diagnosticsObserver=new MutationObserver(()=>{const warnings=[...$('#diagnostics').querySelectorAll('.warning')];if(!warnings.length)return;const messages=warnings.map(item=>item.textContent.trim().replace(/^⚠\s*/, '')).filter(Boolean);warnings.forEach(item=>item.remove());const notice=messages.length?'⚠ '+messages.join(' ／ '):'';$('#statusNotice').textContent=notice;$('#statusNotice').title=notice;if(clauses[active]){clauses[active].result.diagnostics=$('#diagnostics').innerHTML;clauses[active].result.statusNotice=notice}});diagnosticsObserver.observe($('#diagnostics'),{childList:true,subtree:true});
 const readyObserver=new MutationObserver(()=>{if(!$('#analyze').disabled){readyObserver.disconnect();setShell('Nyamuchi Core準備完了')}});readyObserver.observe($('#analyze'),{attributes:true,attributeFilter:['disabled']});
 splitInput(false);
-const showInitialWizardAfterSplash=()=>{if(!setupDone())showWizard()};
-if(window.__umiriSplashFinished)showInitialWizardAfterSplash();
-else window.addEventListener('umiri:splash-finished',showInitialWizardAfterSplash,{once:true});
+if(setupDone()){window.__umiriStartSplash?.()}else{window.__umiriHoldSplash?.();showWizard(true)};
+})();
+</script>
+<script id="o7-final-menu-icons">
+(()=>{
+ const NS='http://www.w3.org/2000/svg';
+ const defs={
+  backAnalyze:'M6 3h12v18H6z M9 7h6 M9 11h6 M9 15h4',
+  backSave:'M4 3h15l2 2v16H4z M7 3v6h10V3 M8 14h9v7',
+  backSetup:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18 M12 8v8 M8 12h8',
+  backTerms:'M5 3h14v18H5z M8 7h8 M8 11h8 M8 15h6',
+  backLicense:'M4 5h16v14H4z M7 9h4 M7 13h7 M16 8v7',
+  backDeveloper:'M3 5h18v14H3z M7 9l-2 3 2 3 M17 9l2 3-2 3 M14 7l-4 10',
+  backHelpPage:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18 M9.7 9a2.5 2.5 0 1 1 3.3 2.4c-1 .5-1.5 1-1.5 2.1 M12 17h.01',
+  backClose:'M5 5l14 14 M19 5L5 19'
+ };
+ for(const [id,d] of Object.entries(defs)){
+  const b=document.getElementById(id); if(!b||b.querySelector('.o7-menu-icon'))continue;
+  const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');s.classList.add('o7-menu-icon');
+  const p=document.createElementNS(NS,'path');p.setAttribute('d',d);s.appendChild(p);b.prepend(s);
+ }
+})();
+</script>
+<script id="o7-close-and-single-row-runtime-fix">
+(()=>{
+  const backstage=document.getElementById('backstage');
+  const close=document.getElementById('backClose');
+  if(backstage&&close&&close.parentElement!==backstage){
+    backstage.appendChild(close);
+  }
+  document.querySelectorAll('#app .ribbon .col').forEach(col=>{
+    const directButtons=[...col.children].filter(el=>el.tagName==='BUTTON');
+    col.classList.toggle('o7-single-command-column',directButtons.length===1);
+  });
+})();
+</script>
+<script id="o7-wizard-logo-runtime-fix">
+(()=>{
+  const shell=document.querySelector('#wizard .wizard');
+  const logo=document.querySelector('#wizard .wizbrand');
+  if(shell&&logo&&logo.parentElement!==shell){
+    shell.appendChild(logo);
+  }
+  const backstage=document.getElementById('backstage');
+  const close=document.getElementById('backClose');
+  if(backstage&&close&&close.parentElement!==backstage){
+    backstage.appendChild(close);
+  }
 })();
 </script>
 </body></html>
-
-
